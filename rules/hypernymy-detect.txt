@@ -1,0 +1,36 @@
+// identified NP as NP
+tregex: __=p < (VP <1 (/^VB.?$/ <<: /^(identif)(y|ies|ied|ying)|(recogniz|determin)(e|es|ed|ing)?|(regard|consider|view|treat)(s|ed|ing)?|(think|thought)|(map)(s|ped|ping)?|(reveal)(s|ed|ing)?|(disclos)(e|es|ed|ing)?$/) <2 (NP=hype !< IN) <3 (PP <1 (IN <<: /as/) <2 NP=hypo))
+tregex: __=p < (VP <1 (/^VB.?$/ <<: /^(identif)(y|ies|ied|ying)|(recogniz|determin)(e|es|ed|ing)?|(regard|consider|view|treat)(s|ed|ing)?|(think|thought)|(map)(s|ped|ping)?|(reveal)(s|ed|ing)?|(disclos)(e|es|ed|ing)?$/) <2 (NP <1 (NP=hype !< IN) <2 (PP <1 (IN <<: /as/) <2 NP=hypo)))
+
+// identified NP , as NP
+tregex: __=p < (VP <1 (/^VB.?$/ <<: /^(identif)(y|ies|ied|ying)|(recogniz|determin)(e|es|ed|ing)?|(regard|consider|view|treat)(s|ed|ing)?|(think|thought)|(map)(s|ped|ping)?|(reveal)(s|ed|ing)?|(disclos)(e|es|ed|ing)?$/) <2 (NP=hype !< IN) <3 /,/ <4 (PP <1 (IN <<: /as/) <2 NP=hypo))
+
+// NP was identified as NP
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB.*$/ <<: /is|was|were|are/) <2 (VP <1 (/^VB.?$/ <<: /^identified|recognized|regarded|thought|mapped|revealed|known|disclosed$/) <2 (PP <1 (IN <<: /as/) <2 NP=hypo))))
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB.*$/ <<: /is|was|were|are/) <2 (VP <1 (/^VB.?$/ <<: /^identified|recognized|regarded|thought|mapped|revealed|known|disclosed$/) <2 (PP <1 (IN <<: /as/) <2 NP=hypo))))
+
+// NP has been identified as NP
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB.*$/ <<: /has|had|have/) <2 (VP <1 (/^VB.*$/ <<: /been/) <2 (VP <1 (/^VB.?$/ <<: /^identified|recognized|regarded|thought|mapped|revealed|known|disclosed$/) <2 (PP <1 (IN <<: /as/) <2 NP=hypo)))))
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB.*$/ <<: /has|had|have/) <2 ADVP <3 (VP <1 (/^VB.*$/ <<: /been/) <2 (VP <1 (/^VB.?$/ <<: /^identified|recognized|regarded|thought|mapped|revealed|known|disclosed$/) <2 (PP <1 (IN <<: /as/) <2 NP=hypo)))))
+
+// NP , termed NP
+tregex: NP=p <1 (NP=hype) <2 /,/ <3 (VP <1 (/^VBN$/ <<: /^termed$/) <2 NP=hypo)
+tregex: VP=p <1 (VP <<- NP=hype) <2 /,/ <3 (VP <1 (/^VBN$/ <<: /^termed$/) <2 NP=hypo)
+
+// NP , known as NP
+tregex: NP=p <1 (NP=hype) <2 /,/ <3 (VP <1 (/^VBN$/ <<: /^known$/) <2 (PP <1 (IN << /as/) <2 NP=hypo))
+tregex: NP=p <1 (NP=hype) <2 PP <3 /,/ <4 (VP <1 (/^VBN$/ <<: /^known$/) <2 (PP <1 (IN << /as/) <2 NP=hypo))
+
+// NP is a NP
+tregex: S=p <1 NP=hype <2 (VP <1 (/^VB|VBZ|VBP$/ <<: /is|are/) <2 (NP=hypo <<, /^a|an$/))
+tregex: S=p <1 NP=hype <2 (VP <-1 (VP <1 (/^VB|VBZ|VBP$/ <<: /is|are|be|been/) <2 (NP=hypo <<, /^a|an$/)))
+
+// NP act|serves as NP
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB|VBZ|VBP|VBD$/ <<: /(act|serve)(s|d|ed)?/) <2 (PP <1 (IN << /as/) <2 NP=hypo)))
+tregex: S=p < (NP=hype $+ (VP <1 (/^VB|VBZ|VBP|VBD$/ <<: /(act|serve)(s|d|ed)?/) <2 (SBAR <1 (IN << /as/) <2 S=hypo)))
+tregex: S=p < (NP=hype $+ (VP <1 MD <2 (VP <1 (/^VB|VBZ|VBP|VBD$/ <<: /(act|serve)/) <2 (PP <1 (IN << /as/) <2 NP=hypo))))
+
+// identification of NP as NP
+tregex: NP=p <1 (NP <<- /(i|I)dentification/) <2 (PP <1 (IN << /of/) <2 (NP <1 NP=hype <2 (PP <1 (IN <<: /as/) <2 NP=hypo)))
+tregex: __=p < (__ <<- (NP <1 (NP <<- /(i|I)dentification/) <2 (PP <1 (IN << /of/) <2 NP=hype)) $+ (PP <1 (IN <<: /as/) <2 NP=hypo))
+

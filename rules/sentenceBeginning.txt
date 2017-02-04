@@ -1,0 +1,17 @@
+// When VBN, Theme
+tregex:    S <1 (SBAR=begin <1 WHADVP <2 (S <: (VP=tr))) <2 /,/=comma <3 (__ << NP=arg)
+operation: new arg tr
+operation: prune begin comma
+
+tregex:    S <1 (SBAR=begin <1 WHADVP <2 (S <: (VP=tr))) <2 (__ << NP=arg)
+operation: new arg tr
+operation: prune begin
+
+// By VBG, Theme
+tregex:    S <1 (PP=begin <2 (S <: (VP=tr))) <2 /,/=comma <3 (NP=arg)
+operation: new arg tr
+operation: prune begin comma
+
+tregex:    S <1 (PP=begin <2 (S <: (VP=tr))) <2 (NP=arg)
+operation: new arg tr
+operation: prune begin

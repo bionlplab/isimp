@@ -1,0 +1,430 @@
+// mrna
+tregex:    NP=p < ((NP <<- /mRNA/=mrna) $+ (CC=cc $+ (NP <<, /protein|surface/=protein)))
+tregex:    NP=p < ((NN <<: /surface/=protein) $+ (CC=cc $+ (NN <<: /mRNA/=mrna)))
+tregex:    NP=p < ((NP <<- /protein|surface/=protein) $+ (CC=cc $+ (NP <<, /mRNA/=mrna)))
+operation: prune mrna cc
+operation: prune cc protein
+
+// NP cc NP (mRNA)
+tregex:    NP=p <1 (NP <: NN=nn1) <2 CC <3 (NP=np2 <1 __=nn <2 (NN <<: /mRNA/))
+operation: replace p np2
+operation: replace nn nn1, replace p np2
+
+// NP , NP cc NP (mRNA)
+tregex:    NP=p <1 (NP <: NN=nn1) <2 /,/ <3 (NP <: NN=nn2) <4 CC <5 (NP=np2 <1 __=nn <2 (NN <<: /mRNA/))
+operation: replace p np2
+operation: replace nn nn1, replace p np2
+operation: replace nn nn2, replace p np2
+
+// NP , NP , cc NP (mRNA)
+tregex:    NP=p <1 (NP <: NN=nn1) <2 /,/ <3 (NP <: NN=nn2) <4 /,/ <5 CC <6 (NP=np2 <1 __=nn <2 (NN <<: /mRNA/))
+operation: replace p np2
+operation: replace nn nn1, replace p np2
+operation: replace nn nn2, replace p np2
+
+// NP , NP , NP cc NP (mRNA)
+tregex:    NP=p <1 (NP <: NN=nn1) <2 /,/ <3 (NP <: NN=nn2) <4 /,/ <5 (NP <: NN=nn3) <6 CC <7 (NP=np2 <1 __=nn <2 (NN <<: /mRNA/))
+operation: replace p np2
+operation: replace nn nn1, replace p np2
+operation: replace nn nn2, replace p np2
+operation: replace nn nn3, replace p np2
+
+// NP , NP , NP , cc NP (mRNA)
+tregex:    NP=p <1 (NP <: NN=nn1) <2 /,/ <3 (NP <: NN=nn2) <4 /,/ <5 (NP <: NN=nn3) <6 /,/ <7 CC <8 (NP=np2 <1 __=nn <2 (NN <<: /mRNA/))
+operation: replace p np2
+operation: replace nn nn1, replace p np2
+operation: replace nn nn2, replace p np2
+operation: replace nn nn3, replace p np2
+
+// 892
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 308
+tregex:    ADJP=n0 <1 (ADJP=n1 <1 (JJ=n2) <- =n2) <2 (CC=n3) <3 (ADJP=n4 <1 (JJ=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 162
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=n6) <- =n6) <- =n5
+operation: replace n0 n2
+operation: replace n0 n5
+
+// 90
+tregex:    ADJP=n0 <1 (CC=n1) <2 (ADJP=n2 <1 (JJ=n3) <- =n3) <3 (CC=n4) <4 (ADJP=n5 <1 (JJ=n6) <- =n6) <- =n5
+operation: replace n0 n2
+operation: replace n0 n5
+
+// 78
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (CC=n7) <6 (NP=n8 <1 (NN=n9) <- =n9) <- =n8
+operation: replace n0 n1
+operation: replace n0 n4
+operation: replace n0 n8
+
+// 77
+tregex:    QP=n0 <1 (CD=n1) <2 (CC=n2) <3 (CD=n3) <- =n3
+operation: replace n0 n1
+operation: replace n0 n3
+
+// 68
+tregex:    NP=n0 <1 (DT=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=n6) <- =n6) <- =n5
+operation: replace n0 n2
+operation: replace n0 n5
+
+// 47
+tregex:    NP=n0 <1 (NP=n1 <1 (NNS=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NNS=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 38
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NNS=n7) <- =n7) <- =n6
+operation: prune n1 n3
+operation: prune n3 n4
+
+// 30
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <2 (NNS=n6) <- =n6) <- =n4
+operation: replace n0 n4
+operation: replace n5 n2, replace n0 n4
+
+// 29
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (JJ=n5) <2 (NNS=n6) <- =n6) <- =n4
+operation: replace n0 n4
+operation: replace n5 n2, replace n0 n4
+
+// 28
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NN=n3) <3 (NN=n4) <- =n4) <2 (CC=n5) <3 (NP=n6 <1 (NN=n7) <- =n7) <- =n6
+operation: replace n0 n1
+operation: replace n4 n7, replace n0 n1
+
+// 27
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NN=n7) <- =n7) <- =n6
+operation: prune n1 n3
+operation: prune n3 n4
+
+// 25
+tregex:    NP=n0 <1 (NP=n1 <1 (CD=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (CD=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 24
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (NP=n7 <1 (NN=n8) <- =n8) <6 (/,/=n9) <7 (CC=n10) <8 (NP=n11 <1 (NN=n12) <- =n12) <- =n11
+operation: replace n0 n1
+operation: replace n0 n4
+operation: replace n0 n7
+operation: replace n0 n11
+
+// 23
+tregex:    ADVP=n0 <1 (ADVP=n1 <1 (RB=n2) <- =n2) <2 (CC=n3) <3 (ADVP=n4 <1 (RB=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 20
+tregex:    ADJP=n0 <1 (ADJP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (ADJP=n4 <1 (JJ=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 20
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (CC=n6) <5 (NP=n7 <1 (NN=n8) <- =n8) <- =n7
+operation: replace n0 n1
+operation: replace n0 n4
+operation: replace n0 n7
+
+// 21
+tregex:    NP=n0 <1 (NP=n1 <1 (JJ=n2) <2 (NN=n3) <- =n3) <2 (CC=n4) <3 (NP=n5 <1 (JJ=n6) <2 (NN=n7) <- =n7) <- =n5
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 17
+tregex:    NP=n0 <1 (NN=n1) <2 (CC=n2) <3 (NN=n3) <4 (NNS=n4) <- =n4
+operation: prune n1 n2
+operation: prune n2 n3
+
+// 17
+tregex:    NP=n0 <1 (NP=n1 <1 (NNP=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NNP=n5) <- =n5) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 16
+tregex:    NP=n0 <1 (NP=n1 <1 (JJ=n2) <2 (NN=n3) <3 (NN=n4) <- =n4) <2 (CC=n5) <3 (NP=n6 <1 (NN=n7) <- =n7) <- =n6
+operation: replace n0 n1
+operation: replace n4 n7, replace n0 n1
+
+// 16
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NN=n3) <3 (NN=n4) <- =n4) <2 (CC=n5) <3 (NP=n6 <1 (NN=n7) <2 (NN=n8) <3 (NN=n9) <- =n9) <- =n6
+operation: replace n0 n1
+operation: replace n0 n6
+
+// 15
+tregex:    NP=n0 <1 (NNS=n1) <2 (CD=n2) <3 (CC=n3) <4 (CD=n4) <- =n4
+operation: prune n2 n3
+operation: prune n3 n4
+
+// 13
+tregex:    NP=n0 <1 (NP=n1 <1 (NNS=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <2 (NNS=n6) <- =n6) <- =n4
+operation: replace n0 n1
+operation: replace n0 n4
+
+// 13
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=n5 <1 (NNS=n6) <- =n6) <- =n5
+operation: replace n0 n1
+operation: replace n3 n6, replace n0 n1
+
+// 12
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=n2 <1 (JJ=n3) <2 (NN=n4) <- =n4) <3 (CC=n5) <4 (NP=n6 <1 (NN=n7) <- =n7) <- =n6
+operation: replace n0 n2
+operation: replace n4 n7, replace n0 n2
+
+// 11
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (CC=n7) <6 (NP=n8 <1 (NN=n9) <2 (NNS=n10) <- =n10) <- =n8
+operation: replace n0 n8
+operation: replace n9 n2, replace n0 n8
+operation: replace n9 n5, replace n0 n8
+
+// 11
+tregex:    NP=n0 <1 (NP=n1 <1 (JJ=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=n5 <1 (JJ=n6) <2 (NNS=n7) <- =n7) <- =n5
+operation: replace n0 n1
+operation: replace n0 n5
+
+// 11
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=n5 <1 (NN=n6) <2 (NNS=n7) <- =n7) <- =n5
+operation: replace n0 n1
+operation: replace n0 n5
+
+// 11
+tregex:    NP=n0 <1 (NP=n1 <1 (JJ=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=n5 <1 (NNS=n6) <- =n6) <- =n5
+operation: replace n0 n1
+operation: replace n0 n5
+
+// 10
+tregex:    NP=n0 <1 (JJ=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=n6) <- =n6) <- =n5
+operation: prune n2 n4
+operation: prune n4 n5
+
+// 10
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (JJ=n6) <2 (NNS=n7) <- =n7) <- =n5
+operation: replace n0 n5
+operation: replace n6 n3, replace n0 n5
+
+// 10
+tregex:    NP=n0 <1 (DT=n1) <2 (NN=n2) <3 (CC=n3) <4 (NN=n4) <5 (NNS=n5) <- =n5
+operation: prune n2 n3
+operation: prune n3 n4
+
+// 10
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=n6) <2 (NNS=n7) <- =n7) <- =n5
+operation: replace n0 n5
+operation: replace n6 n2, replace n0 n5
+
+// 10
+tregex:    NP=n0 <1 (DT=n1) <2 (NP=n2 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=n6) <- =n6) <5 (NP=n7 <1 (NNS=n8) <- =n8) <- =n7
+operation: prune n2 n4
+operation: prune n4 n5
+
+// 10
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NN=n7) <2 (NNS=n8) <- =n8) <- =n6
+operation: prune n1 n3
+operation: prune n3 n4
+
+// 2 (DT NN CC NN)
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 (/NP|NN/=c1) <3 CC|CONJP=cc <4 (/NP|NN/=c2) <- =c2
+tregex:    NP=p <1 /CC|DT/ <2 JJ=c1 <3 CC=cc <4 JJ=c2
+// 2 NN CC NN NNS: 17
+tregex:    NP=p <1 /NP|NN/=c1 <2 CC|CONJP=cc <3 (/NP|NN/=c2 !< PP) <4 __=end <- =end
+tregex:    NP=p <1 CC <2 /NP|NN/=c1 <3 CC|CONJP=cc <4 (/NP|NN/=c2 !< PP) <5 __=end <- =end
+// 2 NN CC NN NN NN
+tregex:    NP=p <1 /NP|NN/=c1 <2 CC|CONJP=cc <3 /NP|NN/=c2 <4 /NP|NN/ <5 /NP|NN/=end <- =end
+// 2 VBN NN CC NN NN: 12
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 /NP|NN/=c1 <3 CC|CONJP=cc <4 /NP|NN/=c2 <5 /NP|NN/ <6 /NP|NN/=end <- =end
+// 2 DT NP CC NP NP
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 (/NP|NN/=c1) <3 CC|CONJP=cc <4 (/NP|NN/=c2) <5 (/NP|NN/=end) <- =end
+// 2 NP CC NP NP: 92
+tregex:    NP <1 (NP=c1 <: NN) <2 CC|CONJP=cc <3 (NP=c2 <: NN) <4 NP=end <- =end
+// 2 NN CD CC CD: 20
+tregex:    NP <2 (CD=c1) <3 CC|CONJP=cc <4 (CD=c2) <- =c2
+operation: prune cc c2
+operation: prune cc c1
+
+// 2 CC DT NP CC NP NP
+tregex:    NP <1 (CC=cc1) <2 (DT) <3 (NP=c1 <: (NN)) <4 (CC=cc2) <5 (NP=c2 <: (NN)) <6 (NP=end <: (NNS)) <- =end
+operation: prune cc1 cc2 c2
+operation: prune cc1 cc2 c1
+
+// 2 (JJ NN) CC NN
+tregex:    NP=p <1 (NP=c1 <1 JJ=jj <2 /NN|NNS/=end <- =end) <2 CC|CONJP <3 (NP=c2 <: /NN|NNS/=nn2) <- =c2
+// 2 NN NN CC NN: 129
+tregex:    NP=p <1 (NP=c1 <1 NN=jj <2 /NN|NNS/=end <- =end) <2 CC|CONJP <3 (NP=c2 <: /NN|NNS/=nn2) <- =c2
+operation: replace p c1
+operation: move jj $+ nn2, replace p c2
+
+// 2
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP <3 (VP=c2 <1 ~cc1 <2 __=others) <- =c2
+operation: replace p c2
+operation: move others $- cc1, replace p c1
+
+// 2 NP CC NP PP
+tregex:    NP=p <1 (NP=c1 !< PP !<< /secretion/) <2 CC|CONJP=cc <3 (NP=c2 <2 PP=pp <- =pp)
+tregex:    NP=p <1 (NP=c1 !< PP !<< /secretion/) <2 /,/ <3 CC|CONJP=cc <4 (NP=c2 <2 PP=pp <- =pp)
+tregex:    NP=p <1 CC <2 (NP=c1 !< PP !<< /secretion/) <3 CC|CONJP=cc <4 (NP=c2 <2 PP=pp <- =pp)
+operation: replace p c2
+operation: prune cc, replace c2 pp
+
+// 2 NN CC (NN NNS): 151
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 CC|CONJP <3 (NP=c2 <1 NN=nn2 <2 NN|NNS=nns)
+// 2 CC NN CC (NN NNS): 30
+tregex:    NP=p <1 (CC) <2 (NP=c1 <: /NN|NNS/=nn1) <3 CC|CONJP <4 (NP=c2 <1 /JJ|VBN|NN/=nn2 <2 /NN|NNS/=nns) <- =c2
+operation: replace p c2
+operation: move nns $- nn1, replace p c1
+operation: replace p c1
+operation: replace p c2
+
+// 2 JJ CC NP(NN NNS)
+tregex:    NP=p <1 (NP <1 (ADJP <: (JJ=nn1))) <2 (CC) <3 (NP=c2 <1 (NN=nn2) <2 (NNS=nns) <- =nns) <- =c2
+operation: replace p c2
+operation: replace nn2 nn1, replace p c2
+
+// 2 NP(NN NN NN) CC NP(NN)
+tregex:    NP=p <1 (NP=c1 <1 (NN|DT|JJ) <2 (NN|JJ) <3 (NN=nn1) <- =nn1) <2 (CC) <3 (NP=c2 <: (NN=nn2)) <- =c2
+operation: replace p c1
+operation: replace nn1 nn2, replace p c1
+
+// 2 NP(JJ NN NN) CC NP(NN NN)
+tregex:    NP=p <1 (NP=c1 <1 (JJ) <2 (NN=nn3) <3 (NN=nn1) <- =nn1) <2 (CC) <3 (NP=c2 <1 (NN=nn4) <2 (NN=nn2) <- =nn2) <- =c2
+operation: replace p c1
+operation: replace nn1 nn2, replace nn3 nn4, replace p c1
+
+// 2 ADVP PP , CC PP
+tregex:    PP=p <1 ADVP <2 PP=c1 <3 /,/ <4 CC=cc <5 PP=c2 <- =c2
+tregex:    NP=p <1 (NP=c1 !<< DT) <2 /,/ <3 (NP=c2 !<< DT) <- =c2
+tregex:    VP=p <1 (VP=c1 << NP) <2 CC|CONJP <3 (VP=c2 <- NP)
+tregex:    NP=p <1 (NP=c1 <: NN) <2 CC|CONJP <3 (NP=c2 <1 DT)
+//UCP=p <1 (ADJP=c1 <: (JJ)) <2 (CC) <3 (NP=c2 <: (NN)) <- =c2
+tregex:    NP=p <1 (CC) <2 (NP=c1 <1 (DT) <2 (NN)) <3 (CC) <4 (NP=c2 <1 (DT) <2 (NN) <3 (NN)) <- =c2
+operation: replace p c1
+operation: replace p c2
+
+// 2 NP CC NP NP(NNS)
+tregex:    NP=p <1 NP=c1 <2 CC|CONJP=cc <3 NP=c2 <4 (NP <- NNS)
+operation: prune c1 cc
+operation: prune cc c2
+
+// 2 NP(NN) CC NP(JJ JJ NN)
+tregex:    NP=p <1 (NP=c1 <: (NN=nn1)) <2 (CC) <3 (NP=c2 <1 (JJ=jj1) <2 (JJ=jj2) <3 (NN=nn2) <- =nn2) <- =c2
+operation: replace p c2
+operation: prune jj1, replace jj2 nn1, replace p c2
+
+// 2  NP(ADJP) CC NP(NN NNS)
+tregex:    NP=p <1 (NP=c1 <: (ADJP <: (JJ=nn1))) <2 (CC) <3 (NP=c2 <1 (NN==jj1) <2 (NNS=nns) <- =nns) <- =c2
+operation: replace p c2
+operation: replace jj1 nn1, replace p c2
+
+// 2 NN NN NP CC NP(NN)
+tregex:    NP=p <1 (NN) <2 (NN) <3 (NP=c1 <1 (NN)) <4 (CC=cc) <5 (NP=c2 <: (NN)) <- =c2
+operation: prune c1 cc
+operation: prune cc c2
+
+// 2 NN CC NN NN NN NN
+tregex:    NP=p <1 (NN=c1) <2 (CC=cc) <3 (NN=c2) <4 (NN) <5 (NN) <6 (NN)
+operation: prune c1 cc
+operation: prune cc c2
+
+// 2 
+tregex:    NP=n0 <1 (NP=n1 <: NN) <2 CC=cc <3 (NP=n2 <: NN) <4 NN <5 NN
+operation: prune n1 cc
+operation: prune cc n2
+
+// 2 
+tregex:    NP=n0 <1 (NP=n1 <: NN) <2 CC=cc <3 NN=n2 <4 (NN <<, /mRNA/) <5 NN
+operation: prune n1 cc
+operation: prune cc n2
+
+// 3
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 /,/ <3 (VP=c2 <: ~cc1=cc2) <4 /,/ <5 CC|CONJP <6 (VP=c3 <1 ~cc1 <2 __=others) <- =c3
+operation: replace p c3
+operation: move others $- cc1, replace p c1
+operation: replace p c3
+operation: move others $- cc2, replace p c2
+
+//3 NN , NN , CC (NN NN): 19
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 CC|CONJP <5 (NP=c3 <1 NN=nn3 <2 NNS=nn4 <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 CC|CONJP <6 (NP=c3 <1 NN=nn3 <2 NNS=nn4 <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 CC|CONJP <5 (NP=c3 <1 NN=nn3 <2 (NN=nn4 <<: /mRNA/) <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 CC|CONJP <6 (NP=c3 <1 NN=nn3 <2 (NN=nn4 <<: /mRNA/) <- =nn4)
+operation: replace p c3
+operation: move nn4 $- nn1, replace p c1
+operation: move nn4 $- nn2, replace p c2
+
+//3 NP , NP , CC NP NP: 5
+tregex:    NP <1 (NP=c1 <: NN) <2 /,/=comma1 <3 (NP=c2 <: NN) <4 /,/=comma2 <5 CC|CONJP=cc <6 (NP=c3 <: NN) <7 NP=end <- =end
+operation: prune c2 cc c3 comma1 comma2
+operation: prune c1 cc c3 comma1 comma2
+operation: prune c1 c2 cc comma1 comma2
+
+//3 NN , NN , CC NN NN NNS: 2
+tregex:    NP <1 NN=c1 <2 /,/=comma1 <3 NN=c2 <4 /,/=comma2 <5 CC|CONJP=cc <6 NN=c3 <7 NN <8 /NNS/=end <- =end
+operation: prune c2 cc c3 comma1 comma2
+operation: prune c1 cc c3 comma1 comma2
+operation: prune c1 c2 cc comma1 comma2
+
+// 3 NP(JJ NN) , NP , CC NP
+tregex:    NP=p <1 (NP=c1 <1 (JJ) <2 (NN=nn1)) <2 (/,/) <3 (NP <1 (NN=nn2)) <4 (/,/) <5 (CC) <6 (NP=c3 <1 (NN=nn3)) <- c3
+operation: replace p c1
+operation: replace nn1 nn2, replace p c1
+operation: replace nn1 nn3, replace p c1
+
+// 4
+tregex:    NP=p <1 /NP|NN/=c1 <2 /,/=comma1 <3 /NP|NN/=c2 <4 /,/=comma2 <5 /NP|NN/=c3 <6 CC|CONJP=cc <7 /NP|NN/=c4 <8 /NP|NN/=end <- =end
+operation: prune cc c1 c2 c3 comma1 comma2
+operation: prune cc c2 c3 c4 comma1 comma2
+operation: prune cc c3 c4 c1 comma1 comma2
+operation: prune cc c4 c1 c2 comma1 comma2
+
+// 4
+tregex:    NP=p <1 (NP=c1 <1 (NN) <2 (NN)) <2 (/,/) <3 (NP=c2 <1 (NN)) <4 (/,/) <5 (NP=c3 <1 (NN)) <6 (/,/) <7 (CC) <8 (NP=c4 <1 (NN)) <- =c4
+operation: replace p c1
+operation: replace p c2
+operation: replace p c3
+operation: replace p c4
+
+//4 NN , NN , NN , CC NN NN: 4
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 CC|CONJP <7 (NP=c4 <1 NN=nn4 <2 NNS=nn5 <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 /,/ <7 CC|CONJP <8 (NP=c4 <1 NN=nn4 <2 NNS=nn5 <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 CC|CONJP <7 (NP=c4 <1 NN=nn4 <2 (NN=nn5 <<: /mRNA/) <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 /,/ <7 CC|CONJP <8 (NP=c4 <1 NN=nn4 <2 (NN=nn5 <<: /mRNA/) <- =nn5)
+operation: replace p c4
+operation: move nn5 $- nn1, replace p c1
+operation: move nn5 $- nn2, replace p c2
+operation: move nn5 $- nn2, replace p c3
+
+tregex:    (NP=n6 <1 (NP=n7) <2 (/,/=n9) <3 (NP=n10) <4 (/,/=n12) <5 (NP=n13) <6 (/,/=n15) <7 (NP=n16) <8 (/,/=n18) <9 (NP=n19) <10 (/,/=n21) <11 (NP=n22) <- =n22)
+operation: replace n6 n7
+operation: replace n6 n10
+operation: replace n6 n13
+operation: replace n6 n16
+operation: replace n6 n19
+operation: replace n6 n22
+
+tregex:    (NP=n6 <1 (NP=n7) <2 (/,/=n9) <3 (NP=n10) <4 (/,/=n12) <5 (NP=n13) <6 (/,/=n15) <7 (NP=n16) <8 (/,/=n18) <9 (NP=n19) <- =n19)
+operation: replace n6 n7
+operation: replace n6 n10
+operation: replace n6 n13
+operation: replace n6 n16
+operation: replace n6 n19
+
+tregex:    (NP=n6 <1 (NP=n7) <2 (/,/=n9) <3 (NP=n10) <4 (/,/=n12) <5 (NP=n13) <6 (/,/=n15) <7 (NP=n16) <- =n16)
+operation: replace n6 n7
+operation: replace n6 n10
+operation: replace n6 n13
+operation: replace n6 n16
+
+tregex:    (NP=n6 <1 (NP=n7) <2 (/,/=n9) <3 (NP=n10) <4 (/,/=n12) <5 (NP=n13) <- =n13)
+operation: replace n6 n7
+operation: replace n6 n10
+operation: replace n6 n13
+
+//1 PP ; PP ; PP cc PP
+tregex:    (PP=n6 <1 (PP=n7) <3 (PP=n10) <5 (PP=n12) <7 (PP=n13) <- =n13)
+operation: replace n6 n7
+operation: replace n6 n10
+operation: replace n6 n12
+operation: replace n6 n13

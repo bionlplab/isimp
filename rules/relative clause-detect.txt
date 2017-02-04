@@ -1,0 +1,42 @@
+// whnp relative clause
+tregex:    /^NP/=p < (/^NP/=ref $+ (/^SBAR/=clause <1 (WHNP) <2 (S <1 /^VP/=vp)))
+tregex:    /^NP/=p < (/^NP/=ref $+ (/^SBAR/=clause <1 (WHNP) <2 (S <1 PP|ADVP <2 /^VP/=vp)))
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 (WHNP) <2 (S <1 /^VP/=vp))))
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 (WHNP) <2 (S <1 PP|ADVP <2 /^VP/=vp))))
+// only one case
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 (WHNP <<: /which/) <2 (S <1 /^NP/=vp))))
+
+// wrb relative clause
+tregex:    /^NP/=p < (/^NP/=ref $+ (/^SBAR/=clause <1 WHADVP <2 S=s))
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 WHADVP <2 S=s)))
+
+// whpp relative clause
+tregex:    /^NP/=p < (/^NP/=ref $+ (/^SBAR/=clause <1 (WHPP <1 IN=in) <2 (S <1 /^NP/)))
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 (WHPP <1 IN=in) <2 (S <1 /^NP/))))
+
+// wp$ relative clause
+tregex:    /^NP/=p < (/^NP/=ref $+ (/,/ $+ (/^SBAR/=clause <1 /^WP[$]/ <2 S=s)))
+
+// NP of NP
+tregex:    /^NP/=p < (/^NP/=ref1 $+ ((/^PP/ <1 IN <2 NP=ref) $+ (/^SBAR/=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 /^VP/=vp))))
+tregex:    /^NP/=p < (/^NP/=ref1 $+ ((/^PP/ <2 NP=ref2) $+ (/,/=comma $+ (/^SBAR/=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 /^VP/=vp)))))
+tregex:    /^NP/=p < (/^NP/=ref1 $+ (/,/ $+ (((/^VP/ <2 /^S|NP$/=ref2) $+ (/,/=comma $+ (/^SBAR/=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 /^VP/=vp)))))))
+
+// NP of NP
+tregex:    /^NP/=p < (/^NP/=ref1 $+ ((PP <1 IN <2 NP=ref) $+ (/^SBAR/=clause <1 (WHNP <1 WDT) <2 (S <1 /^VP/=vp))))
+tregex:    /^NP/=p < (/^NP/=ref1 $+ ((PP <2 NP=ref) $+ (/,/=comma $+ (/^SBAR/=clause <1 (WHNP <1 WDT) <2 (S <1 /^VP/=vp)))))
+tregex:    /^NP/=p < (/^NP/=ref1 $+ (/,/ $+ (((/^VP/ <2 /^S|NP$/=ref) $+ (/,/=comma $+ (/^SBAR/=clause <1 (WHNP <1 WDT) <2 (S <1 /^VP/=vp)))))))
+
+// as demenstrated ...
+#tregex:    /^NP/=p < (/^NP/=ref $+ (/^SBAR/=clause <1 (IN << /as/) <2 (S <1 /^VP/=vp)))
+
+// reduced relative clause
+tregex:    /^NP/=p <1 /^NP/=ref <2 (/^VP/=clause <1 VBN|VBG)
+tregex:    /^NP/=p <1 /^NP/=ref <2 (/^PP/=clause <1 (VBG << /including/))
+tregex:    /^NP/=p <1 @/N.*/=ref <2 /,/ <3 (/^VP/=clause <1 VBN|VBG)
+tregex:    __=p < (/^NP/=ref $+ (/^VP/=clause <1 /^VBG/))
+tregex:    __=p < (/^NP/=ref $+ (/,/ $+ (/^S/ <: (/^VP/=clause <1 /^VBG/))))
+#tregex:    /^NP/=p <1 /^NP/=ref <2 VBN|VBG=clause
+
+#tregex:    __=p < (/,/=comma $+ (S=s <: (/^VP/=clause <1 (VBG) <2 (/^SBAR/ <2 S=s2))))
+

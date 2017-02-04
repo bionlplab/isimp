@@ -1,0 +1,244 @@
+// mrna
+tregex:    NP=p < ((NP=c1 <<- /mRNA/=mrna) $+ (CC=cc $+ (NP=c2 <<, /protein|surface/=protein)))
+tregex:    NP=p < ((NN=c2 <<: /surface/=protein) $+ (CC=cc $+ (NN=c1 <<: /mRNA/=mrna)))
+tregex:    NP=p < ((NP=c1 <<- /protein|surface/=protein) $+ (CC=cc $+ (NP=c2 <<, /mRNA/=mrna)))
+
+// NP cc NP (mRNA)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 CC <3 (NP=c2 <1 __=nn <2 (NN <<: /mRNA/))
+
+// NP , NP cc NP (mRNA)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 CC <5 (NP=c3 <1 __=nn <2 (NN <<: /mRNA/))
+
+// NP , NP , cc NP (mRNA)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 CC <6 (NP==c3 <1 __=nn <2 (NN <<: /mRNA/))
+
+// NP , NP , NP cc NP (mRNA)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 CC <7 (NP=c4 <1 __=nn <2 (NN <<: /mRNA/))
+
+// NP , NP , NP , cc NP (mRNA)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 /,/ <7 CC <8 (NP=c4 <1 __=nn <2 (NN <<: /mRNA/))
+
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <- =c2
+
+tregex:    ADJP=n0 <1 (ADJP=c1 <1 (JJ=n2) <- =n2) <2 (CC=n3) <3 (ADJP=c2 <1 (JJ=n5) <- =n5) <- =c2
+
+// 162
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=c2 <1 (NN=n6) <- =n6) <- =c2
+
+// 90
+tregex:    ADJP=n0 <1 (CC=n1) <2 (ADJP=c1 <1 (JJ=n3) <- =n3) <3 (CC=n4) <4 (ADJP=c2 <1 (JJ=n6) <- =n6) <- =c2
+
+// 78
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (CC=n7) <6 (NP=c3 <1 (NN=n9) <- =n9) <- =c3
+
+// CD CC CD
+tregex:    QP=n0 <1 (CD=c1) <2 (CC=n2) <3 (CD=c2) <- =c2
+
+// PRP CC PRP
+tregex:    NP=n0 <1 (PRP=c1) <2 (CC=n2) <3 (PRP=c2) <- =c2
+
+// DT NP:NN CC NP:NN
+tregex:    NP=n0 <1 (DT=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=c2 <1 (NN=n6) <- =n6) <- =c2
+
+// NP:NNS CC NP:NNS
+tregex:    NP=n0 <1 (NP=c1 <1 (NNS=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NNS=n5) <- =n5) <- =c2
+
+// NP:NN CC NP:NN
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NNS=n7) <- =n7) <- =n6
+
+// 30
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=n4 <1 (NN=c2) <2 (NNS=n6) <- =n6) <- =n4
+
+// 29
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (JJ=n5) <2 (NNS=n6) <- =n6) <- =c2
+
+// 28
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NN=n3) <3 (NN=c1) <- =c1) <2 (CC=n5) <3 (NP=c2 <1 (NN=n7) <- =n7) <- =c2
+
+// 27
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NN=n7) <- =n7) <- =n6
+
+// 25
+tregex:    NP=n0 <1 (NP=c1 <1 (CD=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (CD=n5) <- =n5) <- =c2
+
+// 24
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (NP=c3 <1 (NN=n8) <- =n8) <6 (/,/=n9) <7 (CC=n10) <8 (NP=c4 <1 (NN=n12) <- =n12) <- =c4
+
+// 23
+tregex:    ADVP=n0 <1 (ADVP=c1 <1 (RB=n2) <- =n2) <2 (CC=n3) <3 (ADVP=c2 <1 (RB=n5) <- =n5) <- =c2
+
+// 20
+tregex:    ADJP=n0 <1 (ADJP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (ADJP=c2 <1 (JJ=n5) <- =n5) <- =c2
+
+// 20
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (CC=n6) <5 (NP=c3 <1 (NN=n8) <- =n8) <- =c3
+
+// 21
+tregex:    NP=n0 <1 (NP=c1 <1 (JJ=n2) <2 (NN=n3) <- =n3) <2 (CC=n4) <3 (NP=c2 <1 (JJ=n6) <2 (NN=n7) <- =n7) <- =c2
+
+// 17
+tregex:    NP=n0 <1 (NN=c1) <2 (CC=n2) <3 (NN=c2) <4 (NNS=n4) <- =n4
+
+// 17
+tregex:    NP=n0 <1 (NP=c1 <1 (NNP=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NNP=n5) <- =n5) <- =c2
+
+// 16
+tregex:    NP=n0 <1 (NP=c1 <1 (JJ=n2) <2 (NN=n3) <3 (NN=n4) <- =n4) <2 (CC=n5) <3 (NP=c2 <1 (NN=n7) <- =n7) <- =c2
+
+// 16
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <2 (NN=n3) <3 (NN=n4) <- =n4) <2 (CC=n5) <3 (NP=c2 <1 (NN=n7) <2 (NN=n8) <3 (NN=n9) <- =n9) <- =c2
+
+// 15
+tregex:    NP=n0 <1 (NNS=n1) <2 (CD=c1) <3 (CC=n3) <4 (CD=c2) <- =c2
+
+// 13
+tregex:    NP=n0 <1 (NP=c1 <1 (NNS=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NN=n5) <2 (NNS=n6) <- =n6) <- =c2
+
+// 13
+tregex:    NP=n0 <1 (NP=n1 <1 (NN=n2) <2 (NNS=c1) <- =c1) <2 (CC=n4) <3 (NP=n5 <1 (NNS=c2) <- =c2) <- =c2
+
+// 12
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=n2 <1 (JJ=n3) <2 (NN=c1) <- =c1) <3 (CC=n5) <4 (NP=n6 <1 (NN=c2) <- =c2) <- =n6
+
+// 11
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (/,/=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (/,/=n6) <5 (CC=n7) <6 (NP=n8 <1 (NN=c3) <2 (NNS=n10) <- =n10) <- =n8
+
+// 11
+tregex:    NP=n0 <1 (NP=c1 <1 (JJ=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=c2 <1 (JJ=n6) <2 (NNS=n7) <- =n7) <- =c2
+
+// 11
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <2 (NNS=n3) <- =n3) <2 (CC=n4) <3 (NP=c2 <1 (NN=n6) <2 (NNS=n7) <- =n7) <- =c2
+
+// 11
+tregex:    NP=n0 <1 (NP=n1 <1 (JJ=n2) <2 (NNS=c1) <- =c1) <2 (CC=n4) <3 (NP=c2 <1 (NNS=n6) <- =n6) <- =c2
+
+// 10
+tregex:    NP=n0 <1 (JJ=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=c2 <1 (NN=n6) <- =n6) <- =c2
+
+// 10
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (JJ=c2) <2 (NNS=n7) <- =n7) <- =n5
+
+// 10
+tregex:    NP=n0 <1 (DT=n1) <2 (NN=c1) <3 (CC=n3) <4 (NN=c2) <5 (NNS=n5) <- =n5
+
+// 10
+tregex:    NP=n0 <1 (CC=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=n5 <1 (NN=c2) <2 (NNS=n7) <- =n7) <- =n5
+
+// 10
+tregex:    NP=n0 <1 (DT=n1) <2 (NP=c1 <1 (NN=n3) <- =n3) <3 (CC=n4) <4 (NP=c2 <1 (NN=n6) <- =n6) <5 (NP=n7 <1 (NNS=n8) <- =n8) <- =n7
+
+// 10
+tregex:    NP=n0 <1 (NP=c1 <1 (NN=n2) <- =n2) <2 (CC=n3) <3 (NP=c2 <1 (NN=n5) <- =n5) <4 (NP=n6 <1 (NN=n7) <2 (NNS=n8) <- =n8) <- =n6
+
+// 2 (DT NN CC NN)
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 (/NP|NN/=c1) <3 CC|CONJP=cc <4 (/NP|NN/=c2) <- =c2
+tregex:    NP=p <1 /CC|DT/ <2 JJ=c1 <3 CC=cc <4 JJ=c2
+// 2 NN CC NN NNS: 17
+tregex:    NP=p <1 /NP|NN/=c1 <2 CC|CONJP=cc <3 (/NP|NN/=c2 !< PP) <4 __=end <- =end
+tregex:    NP=p <1 CC <2 /NP|NN/=c1 <3 CC|CONJP=cc <4 (/NP|NN/=c2 !< PP) <5 __=end <- =end
+// 2 NN CC NN NN NN
+tregex:    NP=p <1 /NP|NN/=c1 <2 CC|CONJP=cc <3 /NP|NN/=c2 <4 /NP|NN/ <5 /NP|NN/=end <- =end
+// 2 VBN NN CC NN NN: 12
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 /NP|NN/=c1 <3 CC|CONJP=cc <4 /NP|NN/=c2 <5 /NP|NN/ <6 /NP|NN/=end <- =end
+// 2 DT NP CC NP NP
+tregex:    NP=p <1 /CC|DT|JJ|VBN|PRP\$/ <2 (/NP|NN/=c1) <3 CC|CONJP=cc <4 (/NP|NN/=c2) <5 (/NP|NN/=end) <- =end
+// 2 NP CC NP NP: 92
+tregex:    NP <1 (NP=c1 <: NN) <2 CC|CONJP=cc <3 (NP=c2 <: NN) <4 NP=end <- =end
+// 2 NN CD CC CD: 20
+tregex:    NP <2 (CD=c1) <3 CC|CONJP=cc <4 (CD=c2) <- =c2
+
+// 2 CC DT NP CC NP NP
+tregex:    NP <1 (CC=cc1) <2 (DT) <3 (NP=c1 <: (NN)) <4 (CC=cc2) <5 (NP=c2 <: (NN)) <6 (NP=end <: (NNS)) <- =end
+
+// 2 (JJ NN) CC NN
+tregex:    NP=p <1 (NP <1 JJ=jj <2 /NN|NNS/=c1 <- =c1) <2 CC|CONJP <3 (NP=c2 <: /NN|NNS/=nn2) <- =c2
+// 2 NN NN CC NN: 129
+tregex:    NP=p <1 (NP <1 NN=jj <2 /NN|NNS/=c1 <- =c1) <2 CC|CONJP <3 (NP=c2 <: /NN|NNS/=nn2) <- =c2
+
+// 2
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP <3 (VP=v2 <1 ~cc1=c2 <2 __=others) <- =v2
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP <3 (VP=v2 <1 ~cc1=c2)
+
+// 2 NP CC NP PP
+tregex:    NP=p <1 (NP=c1 !< PP !<< /secretion/) <2 CC|CONJP=cc <3 (NP <1 NP=c2 <2 PP=pp <- =pp)
+tregex:    NP=p <1 (NP=c1 !< PP !<< /secretion/) <2 /,/ <3 CC|CONJP=cc <4 (NP <1 NP=c2 <2 PP=pp <- =pp)
+tregex:    NP=p <1 CC <2 (NP=c1 !< PP !<< /secretion/) <3 CC|CONJP=cc <4 (NP <1 NP=c2  <2 PP=pp <- =pp)
+
+// 2 NN CC (NN NNS): 151
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 CC|CONJP <3 (NP=n2 <1 NN=c2 <2 NN|NNS=nns)
+// 2 CC NN CC (NN NNS): 30
+tregex:    NP=p <1 (CC) <2 (NP=c1 <: /NN|NNS/=nn1) <3 CC|CONJP <4 (NP=n2 <1 /JJ|VBN|NN/=c2 <2 /NN|NNS/=nns) <- =n2
+
+// 2 JJ CC NP(NN NNS)
+tregex:    NP=p <1 (NP <1 (ADJP=c1 <: (JJ=nn1))) <2 (CC) <3 (NP=n2 <1 (NN=c2) <2 (NNS=nns) <- =nns) <- =n2
+
+// 2 NP(NN NN NN) CC NP(NN)
+tregex:    NP=p <1 (NP <1 (NN|DT|JJ) <2 (NN|JJ) <3 (NN=c1) <- =c1) <2 (CC) <3 (NP=c2 <: (NN=nn2)) <- =c2
+
+// 2 NP(JJ NN NN) CC NP(NN NN)
+tregex:    NP=p <1 (NP=c1 <1 (JJ) <2 (NN=nn3) <3 (NN=nn1) <- =nn1) <2 (CC) <3 (NP=c2 <1 (NN=nn4) <2 (NN=nn2) <- =nn2) <- =c2
+
+// 2 ADVP PP , CC PP
+tregex:    PP=p <1 ADVP <2 PP=c1 <3 /,/ <4 CC=cc <5 PP=c2 <- =c2
+tregex:    NP=p <1 (NP=c1 !<< DT) <2 /,/ <3 (NP=c2 !<< DT) <- =c2
+tregex:    VP=p <1 (VP=c1 << NP) <2 CC|CONJP <3 (VP=c2 <- NP)
+tregex:    NP=p <1 (NP=c1 <: NN) <2 CC|CONJP <3 (NP=c2 <1 DT)
+//UCP=p <1 (ADJP=c1 <: (JJ)) <2 (CC) <3 (NP=c2 <: (NN)) <- =c2
+tregex:    NP=p <1 (CC) <2 (NP=c1 <1 (DT) <2 (NN)) <3 (CC) <4 (NP=c2 <1 (DT) <2 (NN) <3 (NN)) <- =c2
+
+// 2 NP CC NP NP(NNS)
+tregex:    NP=p <1 NP=c1 <2 CC|CONJP=cc <3 NP=c2 <4 (NP <- NNS)
+
+// 2 NP(NN) CC NP(JJ JJ NN)
+tregex:    NP=p <1 (NP=c1 <: (NN=nn1)) <2 (CC) <3 (NP=c2 <1 (JJ=jj1) <2 (JJ=jj2) <3 (NN=nn2) <- =nn2) <- =c2
+
+// 2  NP(ADJP) CC NP(NN NNS)
+tregex:    NP=p <1 (NP=c1 <: (ADJP <: (JJ=nn1))) <2 (CC) <3 (NP=n2 <1 (NN=c2) <2 (NNS=nns) <- =nns) <- =n2
+
+// 2 NN NN NP CC NP(NN)
+tregex:    NP=p <1 (NN) <2 (NN) <3 (NP=c1 <1 (NN)) <4 (CC=cc) <5 (NP=c2 <: (NN)) <- =c2
+
+// 2 NN CC NN NN NN NN
+tregex:    NP=p <1 (NN=c1) <2 (CC=cc) <3 (NN=c2) <4 (NN) <5 (NN) <6 (NN)
+
+// 3
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 /,/ <3 (VP=c2 <: ~cc1=cc2) <4 /,/ <5 CC|CONJP <6 (VP=v2 <1 ~cc1=c3 <2 __=others) <- =v2
+
+//3 NN , NN , CC (NN NN): 19
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 CC|CONJP <5 (NP <1 NN=c3 <2 NNS=nn4 <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 CC|CONJP <6 (NP <1 NN=c3 <2 NNS=nn4 <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 CC|CONJP <5 (NP <1 NN=c3 <2 (NN=nn4 <<: /mRNA/) <- =nn4)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 CC|CONJP <6 (NP <1 NN=c3 <2 (NN=nn4 <<: /mRNA/) <- =nn4)
+
+//3 NP , NP , CC NP NP: 5
+tregex:    NP <1 (NP=c1 <: NN) <2 /,/=comma1 <3 (NP=c2 <: NN) <4 /,/=comma2 <5 CC|CONJP=cc <6 (NP=c3 <: NN) <7 NP=end <- =end
+
+//3 NN , NN , CC NN NN NNS: 2
+tregex:    NP <1 NN=c1 <2 /,/=comma1 <3 NN=c2 <4 /,/=comma2 <5 CC|CONJP=cc <6 NN=c3 <7 NN <8 /NNS/=end <- =end
+
+// 3 NP(JJ NN) , NP , CC NP
+tregex:    NP=p <1 (NP=c1 <1 (JJ) <2 (NN=nn1)) <2 (/,/) <3 (NP <1 (NN=nn2)) <4 (/,/) <5 (CC) <6 (NP=c3 <1 (NN=nn3)) <- c3
+
+// 4
+tregex:    NP=p <1 /NP|NN/=c1 <2 /,/=comma1 <3 /NP|NN/=c2 <4 /,/=comma2 <5 /NP|NN/=c3 <6 CC|CONJP=cc <7 /NP|NN/=c4 <8 /NP|NN/=end <- =end
+
+// 4
+tregex:    NP=p <1 (NP=c1 <1 (NN) <2 (NN)) <2 (/,/) <3 (NP=c2 <1 (NN)) <4 (/,/) <5 (NP=c3 <1 (NN)) <6 (/,/) <7 (CC) <8 (NP=c4 <1 (NN)) <- =c4
+
+//4 NN , NN , NN , CC NN NN: 4
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 CC|CONJP <7 (NP <1 NN=c4 <2 NNS=nn5 <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 /,/ <7 CC|CONJP <8 (NP <1 NN=c4 <2 NNS=nn5 <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 CC|CONJP <7 (NP <1 NN=c4 <2 (NN=nn5 <<: /mRNA/) <- =nn5)
+tregex:    NP=p <1 (NP=c1 <: NN=nn1) <2 /,/ <3 (NP=c2 <: NN=nn2) <4 /,/ <5 (NP=c3 <: NN=nn3) <6 /,/ <7 CC|CONJP <8 (NP <1 NN=c4 <2 (NN=nn5 <<: /mRNA/) <- =nn5)
+
+tregex:    (NP=n6 <1 (NP=c1) <2 (/,/=n9) <3 (NP=c2) <4 (/,/=n12) <5 (NP=c3) <6 (/,/=n15) <7 (NP=c4) <8 (/,/=n18) <9 (NP=c5) <10 (/,/=n21) <11 (NP=c6) <- =c6)
+
+tregex:    (NP=n6 <1 (NP=c1) <2 (/,/=n9) <3 (NP=c2) <4 (/,/=n12) <5 (NP=c3) <6 (/,/=n15) <7 (NP=c4) <8 (/,/=n18) <9 (NP=c5) <- =c5)
+
+tregex:    (NP=n6 <1 (NP=c1) <2 (/,/=n9) <3 (NP=c2) <4 (/,/=n12) <5 (NP=c3) <6 (/,/=n15) <7 (NP=c4) <- =c4)
+
+tregex:    (NP=n6 <1 (NP=c1) <2 (/,/=n9) <3 (NP=c2) <4 (/,/=n12) <5 (NP=c3) <- =c3)
+
+//1 PP ; PP ; PP cc PP
+tregex:    (PP=n6 <1 (PP=c1) <3 (PP=c2) <5 (PP=c3) <7 (PP=c4) <- =c4)
+

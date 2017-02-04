@@ -1,0 +1,6 @@
+// ref is pp
+tregex:    (PP <<- (NP=np !< PP)) $+ (SBAR=clause <1 (WHNP|WHPP|WHADVP) <2 (S <1 /^VP/=vp))
+operation: adjoinF (NP @) np, move clause $- np
+
+tregex:    (PP <<- (NP=np !< PP)) $+ (/,/=comma $+ (SBAR=clause <1 (WHNP|WHPP|WHADVP) <2 (S <1 /^VP/=vp)))
+operation: adjoinF (NP @) np, move comma $- np, move clause $- comma

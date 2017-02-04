@@ -1,0 +1,241 @@
+{
+  "TYPE": "sentence",
+  "TEXT": "The B cell-associated surface molecule CD40 functions to regulate B cell responses.",
+  "FROM": 0,
+  "TO  ": 83,
+  "POS ": "The_DT B_NN cell-associated_JJ surface_NN molecule_NN CD40_NN functions_VBZ to_TO regulate_VB B_NN cell_NN responses_NNS ._. ",
+  "TREE": "(ROOT (S (NP (DT The) (NN B) (JJ cell-associated) (NN surface) (NN molecule) (NN CD40)) (VP (VBZ functions) (S (VP (TO to) (VP (VB regulate) (NP (NN B) (NN cell) (NNS responses)))))) (. .)))",
+  "SIMP": []
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "Cross-linking CD40 on B cells can lead to homotypic cell adhesion, IL-6 production, and, in combination with cytokines, to Ig isotype switching.",
+  "FROM": 84,
+  "TO  ": 228,
+  "POS ": "Cross-linking_NN CD40_NN on_IN B_NN cells_NNS can_MD lead_VB to_TO homotypic_JJ cell_NN adhesion_NN ,_, IL-6_NN production_NN ,_, and_CC ,_, in_IN combination_NN with_IN cytokines_NNS ,_, to_TO Ig_NN isotype_NN switching_NN ._. ",
+  "TREE": "(ROOT (S (NP (NP (NN Cross-linking) (NN CD40)) (PP (IN on) (NP (NN B) (NNS cells)))) (VP (MD can) (VP (VB lead) (PP (PP (TO to) (NP (NP (JJ homotypic) (NN cell) (NN adhesion)) (, ,) (NP (NN IL-6) (NN production)) (, ,))) (CC and) (PRN (, ,) (PP (IN in) (NP (NP (NN combination)) (PP (IN with) (NP (NNS cytokines))))) (, ,)) (PP (TO to) (NP (NN Ig) (NN isotype) (NN switching)))))) (. .)))",
+  "SIMP": []
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "Tyrosine kinase activity is increased shortly after engagement of this receptor.",
+  "FROM": 229,
+  "TO  ": 309,
+  "POS ": "Tyrosine_NN kinase_NN activity_NN is_VBZ increased_VBN shortly_RB after_IN engagement_NN of_IN this_DT receptor_NN ._. ",
+  "TREE": "(ROOT (S (NP (NN Tyrosine) (NN kinase) (NN activity)) (VP (VBZ is) (VP (VBN increased) (ADVP (RB shortly)) (PP (IN after) (NP (NP (NN engagement)) (PP (IN of) (NP (DT this) (NN receptor))))))) (. .)))",
+  "SIMP": []
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "Little is known about how the very early events induced by CD40 cross-linking link to cellular responses.",
+  "FROM": 310,
+  "TO  ": 415,
+  "POS ": "Little_JJ is_VBZ known_VBN about_IN how_WRB the_DT very_RB early_JJ events_NNS induced_VBN by_IN CD40_NN cross-linking_NN link_NN to_TO cellular_JJ responses_NNS ._. ",
+  "TREE": "(ROOT (S (NP (JJ Little)) (VP (VBZ is) (VP (VBN known) (PP (IN about) (SBAR (WHADVP (WRB how)) (S (NP (DT the) (ADJP (RB very) (JJ early)) (NNS events)) (VP (VBN induced) (PP (IN by) (NP (NP (NN CD40) (NN cross-linking) (NN link)) (PP (TO to) (NP (JJ cellular) (NNS responses))))))))))) (. .)))",
+  "SIMP": []
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "In this study, we demonstrate that nuclear factor (NF)-kappa B and NF-kappa B-like transcription factors are activated after cross-linking CD40 on resting human tonsillar B cells and on B cell lines.",
+  "FROM": 416,
+  "TO  ": 615,
+  "POS ": "In_IN this_DT study_NN ,_, we_PRP demonstrate_VBP that_IN nuclear_JJ factor_NN -LRB-_-LRB- NF_NN -RRB-_-RRB- -_: kappa_NN B_NN and_CC NF-kappa_NN B-like_JJ transcription_NN factors_NNS are_VBP activated_VBN after_IN cross-linking_JJ CD40_NN on_IN resting_VBG human_JJ tonsillar_JJ B_NN cells_NNS and_CC on_IN B_NN cell_NN lines_NNS ._. ",
+  "TREE": "(ROOT (S (PP (IN In) (NP (DT this) (NN study))) (, ,) (NP (PRP we)) (VP (VBP demonstrate) (SBAR (IN that) (S (NP (NP (JJ nuclear) (NN factor)) (PRN (-LRB- -LRB-) (NP (NN NF)) (-RRB- -RRB-))) (: -) (NP (NP (NN kappa) (NN B)) (CC and) (NP (NN NF-kappa) (JJ B-like) (NN transcription) (NNS factors))) (VP (VBP are) (VP (VBN activated) (PP (IN after) (NP (JJ cross-linking) (NN CD40))) (PP (PP (IN on) (S (VP (VBG resting) (NP (JJ human) (JJ tonsillar) (NN B) (NNS cells))))) (CC and) (PP (IN on) (NP (NN B) (NN cell) (NNS lines))))))))) (. .)))",
+  "SIMP": [
+    {
+      "TYPE": "parenthesis",
+      "TEXT": "nuclear factor (NF",
+      "FROM": 451,
+      "TO  ": 469,
+      "COMP": [
+        {
+          "TYPE": "referred noun phrase",
+          "FROM": 451,
+          "TO  ": 465
+        },
+        {
+          "TYPE": "parenthesized elements",
+          "FROM": 467,
+          "TO  ": 469
+        }
+      ]
+    },
+    {
+      "TYPE": "noun or noun phrase coordination",
+      "TEXT": "kappa B and NF-kappa B-like transcription factors",
+      "FROM": 471,
+      "TO  ": 520,
+      "COMP": [
+        {
+          "TYPE": "conjunct",
+          "FROM": 471,
+          "TO  ": 478
+        },
+        {
+          "TYPE": "conjunction",
+          "FROM": 479,
+          "TO  ": 482
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 483,
+          "TO  ": 520
+        }
+      ]
+    },
+    {
+      "TYPE": "prep or prep phrase coordination",
+      "TEXT": "on resting human tonsillar B cells and on B cell lines",
+      "FROM": 560,
+      "TO  ": 614,
+      "COMP": [
+        {
+          "TYPE": "conjunct",
+          "FROM": 560,
+          "TO  ": 594
+        },
+        {
+          "TYPE": "conjunction",
+          "FROM": 595,
+          "TO  ": 598
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 599,
+          "TO  ": 614
+        }
+      ]
+    }
+  ]
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "The activation is rapid and is mediated through a tyrosine kinase-dependent pathway.",
+  "FROM": 616,
+  "TO  ": 700,
+  "POS ": "The_DT activation_NN is_VBZ rapid_JJ and_CC is_VBZ mediated_VBN through_IN a_DT tyrosine_NN kinase-dependent_JJ pathway_NN ._. ",
+  "TREE": "(ROOT (S (NP (DT The) (NN activation)) (VP (VP (VBZ is) (ADJP (JJ rapid))) (CC and) (VP (VBZ is) (VP (VBN mediated) (PP (IN through) (NP (DT a) (NN tyrosine) (JJ kinase-dependent) (NN pathway)))))) (. .)))",
+  "SIMP": [
+    {
+      "TYPE": "verb or verb phrase coordination",
+      "TEXT": "is rapid and is mediated through a tyrosine kinase-dependent pathway",
+      "FROM": 631,
+      "TO  ": 699,
+      "COMP": [
+        {
+          "TYPE": "conjunct",
+          "FROM": 631,
+          "TO  ": 639
+        },
+        {
+          "TYPE": "conjunction",
+          "FROM": 640,
+          "TO  ": 643
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 644,
+          "TO  ": 699
+        }
+      ]
+    }
+  ]
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "The complexes detected in electrophoretic mobility shift assays contain p50, p65 (RelA), c-Rel, and most likely other components.",
+  "FROM": 701,
+  "TO  ": 830,
+  "POS ": "The_DT complexes_NNS detected_VBN in_IN electrophoretic_JJ mobility_NN shift_NN assays_NNS contain_VBP p50_NN ,_, p65_NN -LRB-_-LRB- RelA_NN -RRB-_-RRB- ,_, c-Rel_NN ,_, and_CC most_RBS likely_JJ other_JJ components_NNS ._. ",
+  "TREE": "(ROOT (S (NP (NP (DT The) (NNS complexes)) (VP (VBN detected) (PP (IN in) (NP (JJ electrophoretic) (NN mobility) (NN shift) (NNS assays))))) (VP (VBP contain) (NP (NP (NN p50) (, ,) (NN p65) (PRN (-LRB- -LRB-) (NN RelA) (-RRB- -RRB-))) (, ,) (NP (NN c-Rel)) (, ,) (CC and) (NP (ADJP (RBS most) (JJ likely)) (JJ other) (NNS components)))) (. .)))",
+  "SIMP": [
+    {
+      "TYPE": "reduced relative clause",
+      "TEXT": "The complexes detected in electrophoretic mobility shift assays",
+      "FROM": 701,
+      "TO  ": 764,
+      "COMP": [
+        {
+          "TYPE": "referred noun phrase",
+          "FROM": 701,
+          "TO  ": 714
+        },
+        {
+          "TYPE": "clause",
+          "FROM": 715,
+          "TO  ": 764
+        }
+      ]
+    },
+    {
+      "TYPE": "noun or noun phrase coordination",
+      "TEXT": "p50, p65 (RelA), c-Rel, and most likely other components",
+      "FROM": 773,
+      "TO  ": 829,
+      "COMP": [
+        {
+          "TYPE": "conjunct",
+          "FROM": 773,
+          "TO  ": 788
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 790,
+          "TO  ": 795
+        },
+        {
+          "TYPE": "conjunction",
+          "FROM": 797,
+          "TO  ": 800
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 801,
+          "TO  ": 829
+        }
+      ]
+    }
+  ]
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "By using transient transfection assays, we found that cross-linking CD40 supports NF-kappa B-dependent gene expression.",
+  "FROM": 831,
+  "TO  ": 950,
+  "POS ": "By_IN using_VBG transient_JJ transfection_NN assays_NNS ,_, we_PRP found_VBD that_IN cross-linking_JJ CD40_NN supports_VBZ NF-kappa_NN B-dependent_JJ gene_NN expression_NN ._. ",
+  "TREE": "(ROOT (S (PP (IN By) (S (VP (VBG using) (NP (JJ transient) (NN transfection) (NNS assays))))) (, ,) (NP (PRP we)) (VP (VBD found) (SBAR (IN that) (S (NP (JJ cross-linking) (NN CD40)) (VP (VBZ supports) (NP (NP (NN NF-kappa)) (NP (JJ B-dependent) (NN gene) (NN expression))))))) (. .)))",
+  "SIMP": []
+}
+{
+  "TYPE": "sentence",
+  "TEXT": "Our results define the NF-kappa B system as an intermediate event in CD40 signaling and suggest that the CD40 pathway can influence the expression of B cell-associated genes with NF-kappa B consensus sites.",
+  "FROM": 951,
+  "TO  ": 1157,
+  "POS ": "Our_PRP$ results_NNS define_VBP the_DT NF-kappa_NN B_NN system_NN as_IN an_DT intermediate_JJ event_NN in_IN CD40_NN signaling_NN and_CC suggest_VBP that_IN the_DT CD40_NN pathway_NN can_MD influence_VB the_DT expression_NN of_IN B_NN cell-associated_JJ genes_NNS with_IN NF-kappa_NN B_NN consensus_NN sites_NNS ._. ",
+  "TREE": "(ROOT (S (NP (PRP$ Our) (NNS results)) (VP (VP (VBP define) (NP (DT the) (NN NF-kappa) (NN B) (NN system)) (PP (IN as) (NP (NP (DT an) (JJ intermediate) (NN event)) (PP (IN in) (NP (NN CD40) (NN signaling)))))) (CC and) (VP (VBP suggest) (SBAR (IN that) (S (NP (DT the) (NN CD40) (NN pathway)) (VP (MD can) (VP (VB influence) (NP (NP (DT the) (NN expression)) (PP (IN of) (NP (NN B) (JJ cell-associated) (NNS genes)))) (PP (IN with) (NP (NN NF-kappa) (NN B) (NN consensus) (NNS sites))))))))) (. .)))",
+  "SIMP": [
+    {
+      "TYPE": "verb or verb phrase coordination",
+      "TEXT": "define the NF-kappa B system as an intermediate event in CD40 signaling and suggest that the CD40 pathway can influence the expression of B cell-associated genes with NF-kappa B consensus sites",
+      "FROM": 963,
+      "TO  ": 1156,
+      "COMP": [
+        {
+          "TYPE": "conjunct",
+          "FROM": 963,
+          "TO  ": 1034
+        },
+        {
+          "TYPE": "conjunction",
+          "FROM": 1035,
+          "TO  ": 1038
+        },
+        {
+          "TYPE": "conjunct",
+          "FROM": 1039,
+          "TO  ": 1156
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+// apposition
+// 33
+tregex:    NP=p <1 (@/N.*/=np1 !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ <<, DT|CD) !< CC <- =np2
+// 22
+tregex:    NP=p <1 (@/N.*/=np1 !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ <<, DT) !< CC <- /,/
+// 17
+tregex:    NP=p <1 (@/N.*/=np1 !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ !<< DT)  !< CC <- =np2
+// 21
+tregex:    NP=p <1 (@/N.*/=np1 !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ !<< DT)  !< CC <- /,/
+// 33
+tregex:    NP=p < (NP=np1 $++ (PP <1 (VBG < /including/) <2 NP=np2))
+// 4
+tregex:    NP=p <1 (NP=np1 <1 CD) <2 /,/ <3 NP=np2 <4 /,/=end <- =end
+// 3
+tregex:    NP=p <1 (NP=np1 << CD <2 (PP <<, /of/)) <2 /,/ <3 NP=np2
+
+// NP(DT ...) NP(NN)
+// 8
+tregex:    NP=p <1 (NP=np1 << DT) <2 (NP=np2 <: NN)
+
+// the NP , a NP
+tregex:    NP=p <1 (NP=np1 <<, /the/) <2 /,/ <3 (NP=np2 <<, /^(a|an)_/)
+
+// DT ... NNS NP(no CC)
+// 4
+tregex:    NP=p <1 DT|JJ <-1 (NP=np2 !< CC !< /,/ $- NNS)
+
+// DT NP(... NNS) NP
+// 0
+tregex:    NP=p <1 DT|JJ <2 (NP <- NNS) <3 (NP=np2 !< CC !< /,/) <- =np2
+
+// NP : NP
+// 16
+tregex:    NP=p <1 NP=np1 <2 /:/ <3 (NP=np2 !<< CC !<< /,/) <- =np2
+
+// NNS , NN CC NN

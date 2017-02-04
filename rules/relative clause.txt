@@ -1,0 +1,79 @@
+// whnp relative clause
+// 16
+tregex:    NP=p < (NP=ref $+ (SBAR <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S=clause)))
+operation: replace p ref
+operation: replace wp ref, relabel whnp NP
+
+// NP of NP
+tregex:    NP=p < (NP=ref1 $+ ((PP <1 IN <2 NP=ref2) $+ (SBAR=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 VP=vp))))
+operation: prune clause
+operation: replace wp ref1, relabel whnp NP
+operation: replace wp ref2, relabel whnp NP
+
+tregex:    NP=p < (NP=ref1 $+ ((PP <2 NP=ref2) $+ (/,/=comma $+ (SBAR=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 VP=vp)))))
+operation: prune clause comma
+operation: replace wp ref1, relabel whnp NP
+operation: replace wp ref2, relabel whnp NP
+
+tregex:    NP=p < (NP=ref1 $+ (/,/ $+ (((VP <2 /^S|NP$/=ref2) $+ (/,/=comma $+ (SBAR=clause <1 (WHNP=whnp <1 /WP\$/=wp <2 __=np) <2 (S <1 VP=vp)))))))
+operation: prune clause comma
+operation: replace wp ref1, relabel whnp NP
+operation: replace wp ref2, relabel whnp NP
+
+// wdt relative clause
+// 154
+tregex:    NP=p < (NP=ref $+ (SBAR=clause <1 (WHNP <1 WDT) <2 (S <1 VP=vp)))
+// 88
+tregex:    NP=p < (NP=ref $+ (/,/ $+ (SBAR=clause <1 (WHNP <1 WDT) <2 (S <1 VP=vp))))
+operation: replace p ref
+operation: new ref vp
+
+// NP of NP
+tregex:    NP=p < (NP=ref1 $+ ((PP <1 IN <2 NP=ref2) $+ (SBAR=clause <1 (WHNP <1 WDT) <2 (S <1 VP=vp))))
+operation: prune clause
+operation: new ref1 vp
+operation: new ref2 vp
+
+tregex:    NP=p < (NP=ref1 $+ ((PP <2 NP=ref2) $+ (/,/=comma $+ (SBAR=clause <1 (WHNP <1 WDT) <2 (S <1 VP=vp)))))
+operation: prune clause comma
+operation: new ref1 vp
+operation: new ref2 vp
+
+tregex:    NP=p < (NP=ref1 $+ (/,/ $+ (((VP <2 /^S|NP$/=ref2) $+ (/,/=comma $+ (SBAR=clause <1 (WHNP <1 WDT) <2 (S <1 VP=vp)))))))
+operation: prune clause comma
+operation: new ref1 vp
+operation: new ref2 vp
+
+// wrb relative clause
+// 4
+tregex:    NP=p < (NP=ref $+ (SBAR=clause <1 WHADVP <2 S=s))
+// 4
+tregex:    NP=p < (NP=ref $+ (/,/ $+ (SBAR=clause <1 WHADVP <2 S=s)))
+operation: replace p ref
+operation: new s
+
+// as demenstrated ...
+// 6
+tregex:    NP=p < (NP=ref $+ (SBAR <1 (IN << /as/) <2 (S <1 VP=vp)))
+operation: replace p ref
+
+// whpp relative clause
+// 18
+tregex:    NP=p < (NP=ref $+ (SBAR <1 (WHPP <1 IN=in) <2 (S=clause <1 NP)))
+operation: replace p ref
+operation: new clause in ref
+
+// reduced relative clause
+// 471
+tregex:    NP=p <1 NP=ref <2 (VP=vp <1 VBN|VBG)
+// 23
+tregex:    NP=p <1 @/N.*/=ref <2 /,/ <3 (VP=vp <1 VBN|VBG)
+// 1
+tregex:    NP=p <1 NP=ref <2 VBN|VBG=vp
+operation: replace p ref
+operation: new ref vp
+
+tregex:    __=p < (/,/=comma $+ (S=s <: (VP <1 (VBG) <2 (SBAR <2 S=s2))))
+operation: prune comma s
+operation: new s2
+

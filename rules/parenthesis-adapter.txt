@@ -1,0 +1,20 @@
+// (NP -LRB- __ -RRB-) --> (PRN -LRB- __ -RRB-)
+tregex:    NP=np <1 -LRB- <3 -RRB-=rrb <- =rrb
+operation: relabel np PRN
+
+// LRB is not the first child of the parent
+tregex:    -LRB-=lrb $+ (__=xx $+ -RRB-=rrb) !>1 __
+operation: adjoinF (PRN @) lrb, move xx $- lrb, move rrb $- xx
+
+// PRN is not the last child of the parent
+tregex:    PRN=prn !>- __ $- NP=np
+operation: adjoinF (NP @) np, move prn $- np
+
+// If the ref NP has PP, find the right most NP
+tregex:    PRN=prn $- (NP < PP <<- (NP=np !< PP))
+operation: adjoinF (NP @) np, move prn $- np
+
+// If the ref is VP, find the right most NP
+tregex:    PRN=prn $- (VP <<- (NP=np !< PP))
+operation: adjoinF (NP @) np, move prn $- np
+

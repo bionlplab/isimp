@@ -1,0 +1,135 @@
+tregex:    NP < (NN=n1 $+ (-LRB-=lrb $+ (NN=n2 $+ (NN=n3 $+ -RRB-=rrb))))
+operation: prune lrb n2 n3 rrb
+operation: prune n1 lrb rrb
+
+tregex:    NP=n0 <1 (NP=n1 !< PP) <2 (PRN=n3 <1 (-LRB-=n4) <2 (NP|QP|ADJP=n5) <3 (-RRB-=n7) <- =n7) <- =n3
+operation: replace n0 n1
+operation: replace n0 n5
+
+tregex:    ADJP=n0 <1 (JJ=n1) <2 (PRN=n2 <1 (-LRB-=n3) <2 (NP=n4) <3 (-RRB-=n6) <- =n6) <- =n2
+operation: replace n2 n4
+
+tregex:    S=n0 <1 (PRN=n1 <1 (-LRB-=n2) <2 (NP=n3) <3 (-RRB-=n13) <- =n13) <- =n1
+operation: prune n1
+
+tregex:    S=n0 <1 (-LRB-=n1) <2 (NP=n2) <3 (VP=n13) <4 (-RRB-=n25) <- =n25
+operation: prune n0
+operation: new n0
+
+tregex:    NP=n0 <1 (NN=n1) <2 (-LRB-=n2) <3 (CD=n3) <4 (-RRB-=n4) <- =n4
+operation: prune n2 n4
+operation: prune n2 n3 n4
+
+tregex:    __ < (@/N.*|JJ|CD/=n0 $+ (-LRB-=n1 $+ (__=n2 $+ -RRB-=n3)))
+operation: prune n1 n2 n3
+operation: prune n0 n1 n3
+
+tregex:    NP=n0 <1 (LST=n1 <1 (-LRB-=n2) <2 (LS=n3) <3 (-RRB-=n4) <- =n4)
+operation: prune n1
+
+tregex:    VP=n0 <1 (VBN=n1) <2 (PRN=n2 <1 (-LRB-=n3) <2 (NP=n4) <3 (-RRB-=n6) <- =n6) <- =n2
+operation: replace n2 n4
+
+tregex:    VP=n0 <1 (VBN=n1) <2 (ADVP=n2 <1 (RB=n3) <- =n3) <3 (PRN=n4 <1 (-LRB-=n5) <2 (NP=n6) <3 (-RRB-=n8) <- =n8) <- =n4
+operation: replace n2 n6, prune n4
+
+tregex:    NP=n0 <1 (NP=n1 <1 (NP=n2) <2 (PP=n5 <1 (IN=n6) <2 (NP=n7) <- =n7) <- =n5) <2 (PRN=n11 <1 (-LRB-=n12) <2 (NP=n13) <3 (-RRB-=n15) <- =n15) <- =n11
+operation: replace n0 n1
+operation: replace n0 n13
+operation: replace n7 n13, prune n11
+
+tregex:    __ < (ADJP|JJ=n0 $+ (PRN=n3 <1 (-LRB-=n4) <2 (__=n5) <3 (-RRB-=n7) <- =n7))
+operation: replace n3 n5
+
+tregex:    __ < (NP|NN=n0 $+ (PRN=n3 <1 (-LRB-=n4) <2 (__=n5) <3 (-RRB-=n7) <- =n7))
+operation: replace n0 n5
+operation: prune n3
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n5 <1 (-LRB-=n6) <2 (NP=n7) <3 (/:/=n9) <4 (NP=n10) <5 (/,/=n13) <6 (NP=n14) <7 (-RRB-=n17) <- =n17) <- =n5
+operation: replace n0 n1
+operation: replace n0 n7
+operation: replace n0 n10
+operation: replace n0 n14
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n4 <1 (-LRB-=n5) <2 (NP=n6) <3 (/,/=n9) <4 (NP=n10) <5 (-RRB-=n13) <- =n13) <- =n4
+operation: replace n0 n1
+operation: replace n0 n6
+operation: replace n0 n10
+
+tregex:    (PP=n0 <1 (IN=n1) <2 (NP=n2) <- =n2) $+ (PRN=n4 <1 (-LRB-=n5) <2 (NP=n6) <3 (-RRB-=n8) <- =n8)
+operation: prune n4
+operation: replace n2 n6, prune n4
+
+tregex:    NP=n0 <1 (-LRB-=n1) <2 (NP=n2) <3 (-RRB-=n6) <- =n6
+operation: replace n0 n2
+
+#tregex:    __=n0 <1 (-LRB-=n1) <2 (__=n2) <3 (-RRB-=n3)
+#operation: prune n1 n3
+
+tregex:    NP=n0 <1 (JJ=n1) <2 (-LRB-=n2) <3 (NN=n3) <4 (CD=n4) <5 (-RRB-=n5) <6 (JJ=n6) <7 (NN=n7) <8 (NN=n8) <- =n8
+operation: prune n2 n5
+
+tregex:    ADJP=n0 <1 (ADJP=n1) <2 (PRN=n3 <1 (-LRB-=n4) <2 (NP=n5) <3 (/,/=n8) <4 (NP=n9) <5 (-RRB-=n12) <- =n12) <- =n3
+operation: replace n3 n5
+operation: replace n3 n9
+
+tregex:    NP=n0 <1 (NN=n1) <2 (NN=n2) <3 (JJ=n3) <4 (NN=n4) <5 (-LRB-=n5) <6 (NN=n6) <7 (NN=n7) <8 (-RRB-=n8) <9 (NN=n9) <- =n9
+operation: prune n5 n8 n6 n7
+operation: prune n4 n5 n8
+
+tregex:    NP=n0 <1 (NP=n1) <2 (NN=n7) <3 (-LRB-=n8) <4 (NN=n9) <5 (NN=n10) <6 (-RRB-=n11) <7 (NN=n12) <- =n12
+operation: prune n8 n9 n10 n11
+operation: prune n7 n8 n11
+
+tregex:    VP=n0 <1 (VBD=n1) <2 (ADVP=n2) <3 (PP=n4 <1 (IN=n5) <2 (NP=n6) <- =n6) <4 (PRN=n9 <1 (-LRB-=n10) <2 (NP=n11) <3 (/,/=n14) <4 (NP=n15) <5 (-RRB-=n21) <- =n21) <- =n9
+operation: prune n9
+operation: replace n6 n11, prune n9
+operation: replace n6 n15, prune n9
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n5 <1 (-LRB-=n6) <2 (CC|CONJP=n7) <3 (ADVP=n8) <4 (NP=n10) <5 (-RRB-=n13) <- =n13) <- =n5
+operation: replace n0 n1
+operation: replace n0 n10
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n6 <1 (-LRB-=n7) <2 (PP=n8 <1 (FW=n9) <- =n9) <3 (/,/=n10) <4 (NP=n11) <5 (-RRB-=n18) <- =n18) <- =n6
+operation: replace n0 n1
+operation: replace n0 n11
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n4 <1 (-LRB-=n5) <2 (PP=n6 <1 (FW=n7) <2 (NP=n8) <- =n8) <3 (/,/=n10) <4 (NP=n11) <5 (-RRB-=n13) <- =n13) <- =n4
+operation: replace n0 n1
+operation: replace n0 n8
+operation: replace n0 n11
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n3 <1 (-LRB-=n4) <2 (CC|CONJP=n5) <3 (NP=n6) <4 (-RRB-=n14) <- =n14) <- =n3
+operation: replace n0 n1
+operation: replace n0 n6
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n4 <1 (-LRB-=n5) <2 (NP=n6) <3 (/:/=n8) <4 (NP=n9) <5 (-RRB-=n11) <- =n11) <- =n4
+operation: replace n0 n1
+operation: replace n0 n6
+operation: replace n0 n9
+
+tregex:    NP=n0 <1 (NP=n1) <2 (-LRB-=n7) <3 (CC|CONJP=n8) <4 (NP=n9) <5 (-RRB-=n16) <- =n16
+operation: replace n0 n1
+operation: replace n0 n9
+
+tregex:    NN=n1 $+ (-LRB-=n2 $+ (NN|JJ=n3 $+ (NN|CD=n4 $+ (-RRB-=n5))))
+operation: prune n2 n3 n4 n5
+operation: prune n1 n2 n5
+
+tregex:    NP=n0 <1 (NP=n1) <2 (-LRB-=n3) <3 (CC|CONJP=n4) <4 (NP=n5) <5 (-RRB-=n7) <- =n7
+operation: replace n0 n1
+operation: replace n0 n5
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n4 <1 (-LRB-=n5) <2 (NP=n6) <3 (PP=n8) <4 (-RRB-=n15) <- =n15) <- =n4
+operation: replace n0 n1
+operation: replace n1 n6, replace n4 n8
+
+tregex:    NN=n5 $+ (-LRB-=n6 $+ (NN=n7 $+ (/,/=n8 $+ (NN=n9 $+ -RRB-=n10))))
+operation: prune n6 n7 n8 n9 n10
+operation: prune n5 n6 n8 n9 n10
+operation: prune n5 n6 n7 n8 n10
+
+tregex:    NP=n0 <1 (NP=n1) <2 (PRN=n4 <1 (-LRB-=n5) <2 (PP=n6 <1 (IN=n7 <: /for/) <2 (NP=n8 <1 (NN=n9 < /example/) <- =n9) <- =n8) <3 (/,/=n10) <4 (NP=n11 <1 (NP=n12) <2 (/,/=n14) <3 (NP=n15) <- =n15) <5 (-RRB-=n17) <- =n17) <- =n4
+operation: replace n0 n1
+operation: replace n0 n11
+operation: replace n0 n15

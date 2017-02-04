@@ -1,0 +1,7 @@
+tregex:    /,/=comma $+ SBAR=sbar
+operation: prune comma sbar
+operation: new sbar
+
+tregex:    /,/=comma $+ /UCP/=ucp
+operation: prune comma ucp
+

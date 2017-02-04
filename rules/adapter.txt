@@ -1,0 +1,16 @@
+// (VP) (CC) (VP NP) --> (VP CC VP) NP
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP <3 (VP=v2 <1 ~cc1=cc2 <2 NP|S=others) <- =v2
+operation: move others $- p
+
+// (VP) (CC) (VP NP) (...) --> (VP CC VP) NP (...)
+tregex:    VP=p <1 (VP=c1 <: VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP=cc <3 (VP=v2 <1 ~cc1=cc2 <2 NP|S=others) !<- =v2
+operation: move cc $- cc1, move cc2 $- cc, move c1 $+ others
+
+tregex:    VP=p <1 (VBN|VBZ|VBD|VBP|VBG=cc1) <2 CC|CONJP <3 (~cc1=c2) <4 NP=others <- =others
+operation: move others $- p
+
+//tregex:    NP=p <1 NNS=nns <2 /,/ <3 NN=n1 <4 CC=cc <5 NN=n2
+//operation: adjoinF (NP @) n1, move cc $- n1, move n2 $- cc
+
+tregex:    VP=p < (VBN|VBZ|VBD|VBP|VBG=cc1 $+ (CC|CONJP $+ (~cc1=c2)) !>1 =p)
+operation: move others $- p

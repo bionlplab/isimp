@@ -1,0 +1,14 @@
+// vbn coordination
+tregex:    VP=p < (VBN|VBZ|VBD|VBP|VBG|VB=cc1 $+ (CC|CONJP=cc $+ (~cc1=cc2)) !>1 =p)
+operation: adjoinF (VP @) cc1, move cc $- cc1, move cc2 $- cc
+
+tregex:    VP=p < (VBN|VBZ|VBD|VBP|VBG|VB=cc1 $+ (CC|CONJP=cc $+ (~cc1=cc2 $+ __)))
+operation: adjoinF (VP @) cc1, move cc $- cc1, move cc2 $- cc
+
+// np , (np ... cc np)
+tregex:    NP=np <: NN|NNS=n1 $+ (/,/=comma $+ (NP <1 (NN|NNS=n2 $++ (CC [$+ NN|NNS | $+ (NP <: NN|NNS)] ))))
+operation: move comma $+ n2, move n1 $+ comma, prune np
+
+// NN , NN
+tregex:    NP=np <1 NN=nn1 <2 /,/ <3 NN=nn2 <- =nn2
+operation: excise np np

@@ -1,0 +1,4 @@
+// NP (PRN L NP R)
+tregex:    /^NP/=n0 <1 (/^NP/=ref !< PP !< SBAR) <2 (PRN=n3 <1 (-LRB-=n4) <2 (/^NP|QP|ADJP|NN/=elements) <3 (-RRB-=n7) <- =n7) <- =n3
+tregex:    __=n0 < (/^ADJP|JJ/=ref $+ (PRN=n2 <1 (-LRB-=n3) <2 (/^NP/=elements) <3 (-RRB-=n5) <- =n5))
+

@@ -1,0 +1,35 @@
+// NP such as NP
+tregex: __=p < (NP=tr $+ (PP <1 (JJ <: /such/) <2 (IN <: /as/) <3 NP=arg))
+tregex: __=p < ((PP <1 IN <-1 NP=tr) $+ (PP <1 (JJ <: /such/) <2 (IN <: /as/) <3 NP=arg))
+
+// NP , such as NP
+tregex: __=p < (NP=tr $+ (/,/ $+ (PP <1 (JJ <: /such/) <2 (IN <: /as/) <3 NP=arg)))
+tregex: __=p < (NP=tr $+ (/,/ $+ (ADJP <1 (JJ <: /such/) <2 (PP <1 (IN <: /as/) <2 NP=arg))))
+tregex: __=p < (NP=tr $+ (/,/ $+ (ADJP <1 (JJ <: /such/) <2 (PP <1 (IN <: /as/) <2 NP=arg))))
+tregex: __=p < (NP=tr $+ (/,/ $+ (CONJP <1 (JJ <: /such/) <2 (IN <: /as/) $+ (NP=arg))))
+tregex: __=p < ((PP <1 IN <-1 NP=tr) $+ (/,/ $+ (PP <1 (JJ <: /such/) <2 (IN <: /as/) <3 NP=arg)))
+tregex: __=p < ((VP <-1 (PP <-1 NP=tr)) $+ (/,/ $+ (PP <1 (JJ <: /such/) <2 (IN <: /as/) <3 NP=arg)))
+
+// NP , including NP
+tregex: __=p < (NP=tr $+ (/,/ $+ (PP <<, /including/ <2 NP=arg)))
+tregex: __=p < ((VP <-1 (PP <-1 NP=tr)) $+ (/,/ $+ (PP <<, /including/ <2 NP=arg)))
+tregex: __=p < ((VP <-1 NP=tr) $+ (/,/ $+ (PP <<, /including/ <2 NP=arg)))
+tregex: __=p < ((VP <-1 NP=tr) $+ (/,/ $+ (VP <<, /including/ <2 NP=arg)))
+tregex: __=p < ((PP <1 IN <-1 NP=tr) $+ (/,/ $+ (PP <<, /including/ <2 NP=arg)))
+
+// NP including NP
+tregex: __=p < (NP=tr $+ (PP <<, /including/ <2 NP=arg))
+tregex: __=p < (NP=tr $+ (VP <<, /including/ <2 NP=arg))
+tregex: __=p < ((PP <1 IN <-1 NP=tr) $+ (PP <<, /including/ <2 NP=arg))
+tregex: __=p < (NP=tr $+ (/:/ $+ (S <1 (VP <<, /including/ <2 NP=arg))))
+
+// NP which includes NP
+tregex: __=p < (NP=tr $+ (SBAR <<, /which|that/ <2 (S <1 (VP <<, /include/ <2 NP=arg))))
+
+// NP , which includes NP
+tregex: __=p < (NP=tr $+ (/,/ $+ (SBAR <<, /which/ <2 (S <1 (VP <<, /include/ <2 NP=arg)))))
+tregex: __=p < ((PP <1 IN <-1 NP=tr) $+ (/,/ $+ (SBAR <<, /which/ <2 (S <1 (VP <<, /include/ <2 NP=arg)))))
+
+// classes of NP
+tregex: NP=p <1 (NP=tr <<- /class|variety/ !< PP) <2 (PP <<, /of/ <2 (NP=arg !< PP))
+tregex: NP=p <1 (NP=tr <<- /class|variety/ !< PP) <2 (PP <<, /of/ <2 (NP <1 NP=arg < PP))
