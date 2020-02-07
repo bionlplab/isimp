@@ -149,13 +149,6 @@ and do not necessarily reflect the views of the National Science Foundation.
 This work was supported by the Intramural Research Programs of the National Institutes of Health, National Library of
 Medicine and Clinical Center.
 
-## Release history
-
-Version 1.0.3 	2017-05-21 	Update the software package
-Version 1.0.2 	2014-01-02 	Update the corpus
-Version 1.0.1 	2013-10-05 	Minor bug fixes
-Version 1.0 	2013-07-15 	Initial release
-
 # Disclaimer
 
 This tool shows the results of research conducted in the Computational Biology Branch, NCBI. The information produced
