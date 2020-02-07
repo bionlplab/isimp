@@ -6,7 +6,6 @@ Sentence simplification is a technique designed to detect the various types of c
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
 communicated message. By reducing the syntactic complexity of a sentence, the goal of sentence simplification is
 to ease the development of natural language processing and text mining tools. For this purpose, we developed **iSimp**.
-You can download the software package [here](https://research.bioinformatics.udel.edu/isimp/software.html).
 
 To illustrate the usefulness of sentence simplification, consider the following complex sentence from the biomedical
 literature:
@@ -16,8 +15,7 @@ literature:
 > kinases, ERK1 and ERK2. (PMID-8557975)
 
 The major syntactic constructs that we consider when simplifying a sentence are: coordinations, relative clauses,
-appositions, parenthesized elements, and introductory phrases. Figure 1 shows constructs which can be seen in the
-example. Figure 2 gives more details of components in each construct.
+appositions, parenthesized elements, and introductory phrases.
 
 After identifying these constructs, the complex sentence can be broken into multiple simple sentences. Here we show
 only six examples, which require combining two coordinations with the relative clause and the apposition:
