@@ -1,22 +1,15 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import annotation.ISimpAnnotations.ISimpAnnotation;
-
 import com.google.gson.annotations.SerializedName;
-
-import edu.stanford.nlp.ling.CoreAnnotations.CharacterOffsetBeginAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.CharacterOffsetEndAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.OriginalTextAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.*;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import extractor.SimplificationConstruct;
 import extractor.SimplificationConstruct.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class JsonAdapters {
 
@@ -28,7 +21,7 @@ public abstract class JsonAdapters {
     final String                 text;
     @SerializedName("FROM")
     final int                    begin;
-    @SerializedName("TO  ")
+    @SerializedName("TO")
     final int                    end;
     @SerializedName("POS ")
     final String                 pos;
@@ -68,7 +61,7 @@ public abstract class JsonAdapters {
     final String                 text;
     @SerializedName("FROM")
     final int                    begin;
-    @SerializedName("TO  ")
+    @SerializedName("TO")
     final int                    end;
     @SerializedName("COMP")
     final List<ComponentAdapter> components;
@@ -93,7 +86,7 @@ public abstract class JsonAdapters {
     final String type;
     @SerializedName("FROM")
     final int    begin;
-    @SerializedName("TO  ")
+    @SerializedName("TO")
     final int    end;
 
     public ComponentAdapter(Component comp) {

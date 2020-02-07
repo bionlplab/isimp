@@ -39,14 +39,12 @@ public class Console {
     // create Options object
     Options options = new Options();
     options.addOption("parse_only", false, "If set, parse the document only");
-    options
-        .addOption(
+    options.addOption(
             "tokenized",
             false,
-            "set input tokenized. If not set, assume the document is not tokenized and ssplited.");
+            "set input tokenized. If not set, assume the document is not tokenized and ssplit.");
     options.addOption("help", false, "display this help and exit");
-    options
-        .addOption(
+    options.addOption(
             "json",
             false,
             "print file in JSON format. If not set, print file in plain text format");
@@ -73,13 +71,14 @@ public class Console {
     SentencePrinterBuilder printerBuilder = new SentencePrinterBuilder();
     SentencePrinter printer;
     if (cmd.hasOption("json")) {
-      printer = printerBuilder.setPrettyPrinting().createJson();
+//      printer = printerBuilder.setPrettyPrinting().createJson();
+      printer = printerBuilder.createJson();
     } else {
       printer = printerBuilder.createPlain();
     }
 
     ISimpBuilder isimpBuilder = new ISimpBuilder();
-    if (cmd.hasOption("tokenzied")) {
+    if (cmd.hasOption("tokenized")) {
       isimpBuilder = isimpBuilder.setTokenized();
     }
 
