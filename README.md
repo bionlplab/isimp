@@ -94,6 +94,28 @@ This will download a large (213 MB) compressed file containing
 the folder, and you’re ready to use it.
 -->
 
+## Sentence simplification corpus
+
+This corpus consists of [Medline](http://www.ncbi.nlm.nih.gov/pubmed) abstracts concerning proteins and genes. We randomly selected 130 Medline abstracts (a total of 1,199 sentences), having the words "protein" and "gene" in the title (see table below). We asked five judges to mark the six constructs. To provide a high quality annotated corpus, each sentence was annotated by two judges independently and annotation conflicts (57 sentences in total) were solved by a third party opinion.
+
+The corpus contains XML files of passages, sentences, and annotations of simplification constructions. Each XML file is in BioC format, therefore, given with its Key files. For convenience, all BioC files use same [DTD](https://research.bioinformatics.udel.edu/isimp/corpus/BioC.dtd), provided by [BioC](http://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/BioC/), to verify the structure of XML files.
+
+* XML files, following DTD definition, contain text and annotations.
+* Key files, mainly written by Yifan Peng, provide additional information that describe the meaning of tags in the XML files.
+
+### Download
+
+The download is a [zipped file](https://research.bioinformatics.udel.edu/isimp/corpus/bioc-isimp-simplification_v2.tar.gz). If you upack the zip file, you should have a BioC XML file and a Key file. The BioC file contains raw text that appears in PubMed abstracts, which is downloaded directly from Medline, and simplfication constructs. For each construct, "annotation" marked its components, and "relation" linked components to show the simplification constructs as a whole. Details of tag meanings can be found in the Key file.
+
+### BioNLP-ST corpora
+
+We have converted the training and development corpora of the BioNLP-ST [2011](https://sites.google.com/site/bionlpst/) and [2013](https://sites.google.com/site/bionlpst2013/) GE tasks into BioC format. The converted corpora, as well as the conversion program, are available from the links below. The test corpora are not provided because the event annotations in those data are not released.
+
+In the converted data below, text files (in .txt) in the BioNLP corpora are split by 'newlines' and stored into BioCPassages. Entities (in .a1) and event triggers (in .a2) are stored into separate passages based on their positions in the text files. Target annotations (in .a2), including event, relation, event modification, and equivalence, are annotated at the document level.
+2013 GE task: [Training set](https://research.bioinformatics.udel.edu/isimp/corpus/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://research.bioinformatics.udel.edu/isimp/corpus/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
+
+2011 GE task: [Training set](https://research.bioinformatics.udel.edu/isimp/corpus/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://research.bioinformatics.udel.edu/isimp/corpus/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
+
 ## Citing iSimp
 
 The main technical ideas behind how iSimp and BioC work appear in these papers. Feel free to cite one or more of the
