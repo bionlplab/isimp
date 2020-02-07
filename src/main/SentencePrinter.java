@@ -32,7 +32,7 @@ public abstract class SentencePrinter {
       if (gson == null) {
         GsonBuilder builder = new GsonBuilder();
         if (isPrettyPrinting) {
-          builder = builder.setPrettyPrinting();
+          builder.setPrettyPrinting();
         }
         gson = builder.create();
       }
@@ -82,7 +82,7 @@ public abstract class SentencePrinter {
     class Plain {
 
       private final PlainBuilder builder;
-      private final int          width = 80;
+      private final int width = 80;
 
       Plain(PlainBuilder builder) {
         this.builder = builder;
@@ -140,14 +140,13 @@ public abstract class SentencePrinter {
         // Needed to handle last line correctly
         line = line.substring(indent) + "\n";
         line = line.replaceAll(
-            "(.{1," + (width - indent) + "})\\s+",
-            indent(indent) + "$1\n");
+                "(.{1," + (width - indent) + "})\\s+",
+                indent(indent) + "$1\n");
         return sb.append(line.trim()).toString();
       }
 
       private String loc(int from, int to) {
-        return new StringBuilder().append('[').append(from).append("..")
-            .append(to).append(']').toString();
+        return "[" + from + ".." + to + ']';
       }
 
       String indent(int indent) {

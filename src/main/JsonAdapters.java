@@ -16,17 +16,17 @@ public abstract class JsonAdapters {
   public static class SentenceAdapter {
 
     @SerializedName("TYPE")
-    final String                 type;
+    final String type;
     @SerializedName("TEXT")
-    final String                 text;
+    final String text;
     @SerializedName("FROM")
-    final int                    begin;
+    final int begin;
     @SerializedName("TO")
-    final int                    end;
+    final int end;
     @SerializedName("POS ")
-    final String                 pos;
+    final String pos;
     @SerializedName("TREE")
-    final String                 tree;
+    final String tree;
     @SerializedName("SIMP")
     final List<ConstructAdapter> constructs;
 
@@ -37,17 +37,17 @@ public abstract class JsonAdapters {
       end = sentence.get(CharacterOffsetEndAnnotation.class);
       StringBuilder sb = new StringBuilder();
       for (CoreMap tok : sentence.get(TokensAnnotation.class)) {
-        sb.append(tok.get(TextAnnotation.class)).append('_')
-            .append(tok.get(PartOfSpeechAnnotation.class)).append(' ');
+        sb.append(tok.get(TextAnnotation.class))
+                .append('_')
+                .append(tok.get(PartOfSpeechAnnotation.class))
+                .append(' ');
       }
       pos = sb.toString();
       tree = sentence.get(TreeAnnotation.class).toString();
-      constructs = new ArrayList<ConstructAdapter>();
+      constructs = new ArrayList<>();
       if (sentence.get(ISimpAnnotation.class) != null) {
-        for (SimplificationConstruct construct : sentence
-            .get(ISimpAnnotation.class)) {
-          constructs.add(new ConstructAdapter(construct, sentence
-              .get(OriginalTextAnnotation.class)));
+        for (SimplificationConstruct construct : sentence.get(ISimpAnnotation.class)) {
+          constructs.add(new ConstructAdapter(construct, sentence.get(OriginalTextAnnotation.class)));
         }
       }
     }
@@ -56,24 +56,24 @@ public abstract class JsonAdapters {
   public static class ConstructAdapter {
 
     @SerializedName("TYPE")
-    final String                 type;
+    final String type;
     @SerializedName("TEXT")
-    final String                 text;
+    final String text;
     @SerializedName("FROM")
-    final int                    begin;
+    final int begin;
     @SerializedName("TO")
-    final int                    end;
+    final int end;
     @SerializedName("COMP")
     final List<ComponentAdapter> components;
 
     ConstructAdapter(SimplificationConstruct construct, String originalText) {
       type = construct.annotation().name();
       text = originalText.substring(
-          construct.beginPosition(),
-          construct.endPosition());
+              construct.beginPosition(),
+              construct.endPosition());
       begin = construct.beginPosition();
       end = construct.endPosition();
-      components = new ArrayList<ComponentAdapter>();
+      components = new ArrayList<>();
       for (Component comp : construct.components()) {
         components.add(new ComponentAdapter(comp));
       }
@@ -85,9 +85,9 @@ public abstract class JsonAdapters {
     @SerializedName("TYPE")
     final String type;
     @SerializedName("FROM")
-    final int    begin;
+    final int begin;
     @SerializedName("TO")
-    final int    end;
+    final int end;
 
     public ComponentAdapter(Component comp) {
       type = comp.annotation().name();

@@ -14,7 +14,7 @@ public class ISimpBuilder {
    * if set , separates words only when whitespace is encountered. if set, only
    * splits sentences on newlines.
    * 
-   * @return
+   * @return ISimpBuilder
    */
   public ISimpBuilder setTokenized() {
     isTokenized = true;
