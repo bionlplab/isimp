@@ -101,7 +101,7 @@ def process_relative(sentence, simp):
 
 def simplify_helper(sentence, total_simp_sentences):
     if len(sentence['SIMP']) == 0:
-        print('from', sentence['id'], 'get', sentence['id'], sentence['TEXT'])
+        # print('from', sentence['id'], 'get', sentence['id'], sentence['TEXT'])
         total_simp_sentences.append(sentence)
         return
     simp_idx = len(sentence['SIMP'])
