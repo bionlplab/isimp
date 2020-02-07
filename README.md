@@ -85,12 +85,14 @@ the following processing.
 the BioC format to the GENIA Event Extraction (GE) corpora of the BioNLP-ST 2011, and this corpora was used in the
 evaluation of iSimp as well.
 
+<!--
 ## Software
 
 iSimp software can be downloaded via the [link](https://research.bioinformatics.udel.edu/isimp/corpus/isimp_v2.tar.gz).
 This will download a large (213 MB) compressed file containing
 (1) the iSimp code jar, (2) the iSimp rules, and (3) the libraries required to run iSimp. Unzip this file, open
 the folder, and you’re ready to use it.
+-->
 
 ## Citing iSimp
 

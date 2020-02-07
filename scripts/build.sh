@@ -1,6 +1,5 @@
 #! /bin/bash -x
 
-# Might fail if $0 is a link
 CURRENT_DIR=$(dirname "$0")
 WORKING_DIR="$(dirname "$CURRENT_DIR")"
 CLASSPATH="$WORKING_DIR/lib/*:$WORKING_DIR/bin"
