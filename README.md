@@ -145,15 +145,3 @@ necessarily represent the official views of the National Institutes of Health.
 This material is also based upon work supported by the National Science Foundation under Grant No. DBI-1062520.
 Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s)
 and do not necessarily reflect the views of the National Science Foundation.
-
-This work was supported by the Intramural Research Programs of the National Institutes of Health, National Library of
-Medicine and Clinical Center.
-
-# Disclaimer
-
-This tool shows the results of research conducted in the Computational Biology Branch, NCBI. The information produced
-on this website is not intended for direct diagnostic use or medical decision-making without review and oversight
-by a clinical professional. Individuals should not change their health behavior solely on the basis of information
-produced on this website. NIH does not independently verify the validity or utility of the information produced
-by this tool. If you have questions about the information produced on this website, please see a health care
-professional. More information about NCBI's disclaimer policy is available.
