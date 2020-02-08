@@ -6,7 +6,6 @@ Sentence simplification is a technique designed to detect the various types of c
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
 communicated message. By reducing the syntactic complexity of a sentence, the goal of sentence simplification is
 to ease the development of natural language processing and text mining tools. For this purpose, we developed **iSimp**.
-You can download the software package [here](https://research.bioinformatics.udel.edu/isimp/software.html).
 
 To illustrate the usefulness of sentence simplification, consider the following complex sentence from the biomedical
 literature:
@@ -16,8 +15,7 @@ literature:
 > kinases, ERK1 and ERK2. (PMID-8557975)
 
 The major syntactic constructs that we consider when simplifying a sentence are: coordinations, relative clauses,
-appositions, parenthesized elements, and introductory phrases. Figure 1 shows constructs which can be seen in the
-example. Figure 2 gives more details of components in each construct.
+appositions, parenthesized elements, and introductory phrases.
 
 After identifying these constructs, the complex sentence can be broken into multiple simple sentences. Here we show
 only six examples, which require combining two coordinations with the relative clause and the apposition:
@@ -94,6 +92,38 @@ This will download a large (213 MB) compressed file containing
 the folder, and you’re ready to use it.
 -->
 
+## Sentence simplification corpus
+
+This corpus consists of [Medline](http://www.ncbi.nlm.nih.gov/pubmed) abstracts concerning proteins and genes. We randomly selected 130 Medline abstracts (a total of 1,199 sentences), having the words "protein" and "gene" in the title (see table below). We asked five judges to mark the six constructs. To provide a high quality annotated corpus, each sentence was annotated by two judges independently and annotation conflicts (57 sentences in total) were solved by a third party opinion.
+
+**iSimp corpus for sentence simplification annotation**
+| Types                  | % of sentences | % of abstracts |
+|:-----------------------|---------------:|---------------:|
+| Coordinations          |           0.43 |           0.75 |
+| Relative clauses       |           0.19 |           0.65 |
+| Appositions            |           0.04 |           0.36 |
+| Parenthesized elements |           0.16 |           0.63 |
+| Introductory phrases   |           0.12 |           0.53 |
+
+The corpus contains XML files of passages, sentences, and annotations of simplification constructions. Each XML file is in BioC format, therefore, given with its Key files. For convenience, all BioC files use same [DTD](https://github.com/yfpeng/isimp/releases/download/v0.2/BioC.dtd), provided by [BioC](http://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/BioC/), to verify the structure of XML files.
+
+* XML files, following DTD definition, contain text and annotations.
+* Key files, mainly written by Yifan Peng, provide additional information that describe the meaning of tags in the XML files.
+
+### Download
+
+The download is a [zipped file](https://github.com/yfpeng/isimp/releases/download/v0.2/bioc-isimp-simplification_v2.tar.gz). If you upack the zip file, you should have a BioC XML file and a Key file. The BioC file contains raw text that appears in PubMed abstracts, which is downloaded directly from Medline, and simplfication constructs. For each construct, "annotation" marked its components, and "relation" linked components to show the simplification constructs as a whole. Details of tag meanings can be found in the Key file.
+
+### BioNLP-ST corpora
+
+We have converted the training and development corpora of the BioNLP-ST [2011](https://sites.google.com/site/bionlpst/) and [2013](https://sites.google.com/site/bionlpst2013/) GE tasks into BioC format. The converted corpora, as well as the conversion program, are available from the links below. The test corpora are not provided because the event annotations in those data are not released.
+
+In the converted data below, text files (in .txt) in the BioNLP corpora are split by 'newlines' and stored into BioCPassages. Entities (in .a1) and event triggers (in .a2) are stored into separate passages based on their positions in the text files. Target annotations (in .a2), including event, relation, event modification, and equivalence, are annotated at the document level.
+
+2013 GE task: [Training set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
+
+2011 GE task: [Training set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
+
 ## Citing iSimp
 
 The main technical ideas behind how iSimp and BioC work appear in these papers. Feel free to cite one or more of the
@@ -113,22 +143,3 @@ necessarily represent the official views of the National Institutes of Health.
 This material is also based upon work supported by the National Science Foundation under Grant No. DBI-1062520.
 Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s)
 and do not necessarily reflect the views of the National Science Foundation.
-
-This work was supported by the Intramural Research Programs of the National Institutes of Health, National Library of
-Medicine and Clinical Center.
-
-## Release history
-
-Version 1.0.3 	2017-05-21 	Update the software package
-Version 1.0.2 	2014-01-02 	Update the corpus
-Version 1.0.1 	2013-10-05 	Minor bug fixes
-Version 1.0 	2013-07-15 	Initial release
-
-# Disclaimer
-
-This tool shows the results of research conducted in the Computational Biology Branch, NCBI. The information produced
-on this website is not intended for direct diagnostic use or medical decision-making without review and oversight
-by a clinical professional. Individuals should not change their health behavior solely on the basis of information
-produced on this website. NIH does not independently verify the validity or utility of the information produced
-by this tool. If you have questions about the information produced on this website, please see a health care
-professional. More information about NCBI's disclaimer policy is available.
