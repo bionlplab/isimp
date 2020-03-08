@@ -2,7 +2,7 @@
 
 -----------------------
 
-[HitCount](https://hits.dwyl.com/yfpeng/isimp.svg)
+![HitCount](https://hits.dwyl.com/yfpeng/isimp.svg)
 
 Sentence simplification is a technique designed to detect the various types of clauses and constructs used in a
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
