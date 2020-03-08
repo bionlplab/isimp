@@ -1,6 +1,8 @@
-![iSimp](https://research.bioinformatics.udel.edu/isimp/images/isimplogo3.png)
+![iSimp](https://github.com/yfpeng/isimp/blob/master/isimplogo3.png?raw=true)
 
 -----------------------
+
+[HitCount](https://hits.dwyl.com/yfpeng/isimp.svg)
 
 Sentence simplification is a technique designed to detect the various types of clauses and constructs used in a
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
