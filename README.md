@@ -128,13 +128,7 @@ In the converted data below, text files (in .txt) in the BioNLP corpora are spli
 
 ## Citing iSimp
 
-The main technical ideas behind how iSimp and BioC work appear in these papers. Feel free to cite one or more of the
-following papers depending on what you are using.
-
-* Peng,Y., Tudor,C., Torii,M., Wu,C.H., Vijay-Shanker,K. (2014) [iSimp in BioC standard format: Enhancing the interoperability of a sentence simplification system](http://database.oxfordjournals.org/content/2014/bau038). Database.
-* Peng,Y., Tudor,C., Torii,M., Wu,C.H., Vijay-Shanker,K. (2013) [Enhancing the interoperability of iSimp by using the BioC format](http://www.biocreative.org/media/store/files/2013/ProceedingsBioCreativeIV_vol1_.pdf). In Proceedings of the Fourth BioCreative Challenge Evaluation Workshop. 5-9.
-* Comeau,D.C., Doğan,R.I., Ciccarese,P., Cohen,K.B., Krallinger,M., Leitner,F., Lu,Z., Peng,Y., Rinaldi,F., Torii,M., Valencia,V., Verspoor,K., Wiegers,T.C., Wu,C.H., Wilbur,W.J. (2013) [BioC: A minimalist approach to interoperability for biomedical text processing](http://database.oxfordjournals.org/content/2013/bat064.abstract). Database: The Journal of Biological Databases and Curation.
-* Peng,Y., Tudor,C., Torii,M., Wu,C.H., Vijay-Shanker,K. (2012) [iSimp: A Sentence Simplification System for Biomedical Text](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6392671). In Proceedings of the 2012 IEEE International Conference on Bioinformatics and Biomedicine. 211-216.
+* Peng Y, Tudor C, Torii M, Wu CH, Vijay-Shanker K. [iSimp: A Sentence Simplification System for Biomedical Text](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6392671). In Proceedings of the 2012 IEEE International Conference on Bioinformatics and Biomedicine. 2012:211-216.
 
 ## Acknowledgment
 
