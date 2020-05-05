@@ -50,7 +50,7 @@ $ cd isimp
 
 ## Build Java
 
-Downdload [lib](https://github.com/yfpeng/isimp/releases/download/v0.2/lib.zip) and put them in the `lib' folder.
+Downdload [lib](https://github.com/yfpeng/isimp/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
 
 ```bash
 $ bash scripts/build.sh
