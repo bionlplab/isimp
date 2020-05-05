@@ -128,7 +128,7 @@ In the converted data below, text files (in .txt) in the BioNLP corpora are spli
 
 ## Citing iSimp
 
-* Peng Y, Tudor C, Torii M, Wu CH, Vijay-Shanker K. [iSimp: A Sentence Simplification System for Biomedical Text](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6392671). In Proceedings of the 2012 IEEE International Conference on Bioinformatics and Biomedicine. 2012:211-216.
+* Peng Y, Tudor C, Torii M, Wu CH, Vijay-Shanker K. [iSimp: A Sentence Simplification System for Biomedical Text](https://doi.org/10.1109/BIBM.2012.6392671). In Proceedings of the 2012 IEEE International Conference on Bioinformatics and Biomedicine. 2012:211-216.
 
 ## Acknowledgment
 
