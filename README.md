@@ -69,6 +69,18 @@ $ pip install -r requirements.txt
 
 **Note**: If `virtualenv` is not installed, try ``pip install virtualenv``.
 
+## Detect simplification constructs
+
+```bash
+bash scripts/simplify.sh foo.txt foo_isimp.jsonl
+```
+
+## Generate simplified sentences
+
+```bash
+python scripts/generate_sentences.py foo_isimp.jsonl foo_isimp.txt
+```
+
 ## BioCreative IV Track 1
 
 To make iSimp readily usable in NLP and text mining tools, we participate in [BioCreative IV Track 1](http://www.biocreative.org/tasks/biocreative-iv/track-1-interoperability/),
