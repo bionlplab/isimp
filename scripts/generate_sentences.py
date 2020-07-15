@@ -137,7 +137,14 @@ def generate_sentences(src, dest):
             sentences_text = set(s['TEXT'] for s in total_sentences)
             for s in sentences_text:
                 s = re.sub('\\s+', ' ', s)
+                s = re.sub('\\n', ' ', s)
+                s = s.strip().capitalize()
+                if len(s) == 0:
+                    continue
+                if s[-1] != '.':
+                    s += '.'
                 fout.write(s + '\n')
+            fout.write('\n')
 
 
 def main():

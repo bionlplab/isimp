@@ -3,3 +3,4 @@ isimp.iml
 bin
 venv_lmem05
 lib
+.DS_store
