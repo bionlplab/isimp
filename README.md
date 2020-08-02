@@ -1,4 +1,4 @@
-![iSimp](https://github.com/yfpeng/isimp/blob/master/isimplogo3.png?raw=true)
+![iSimp](https://github.com/bionlplab/isimp/blob/master/isimplogo3.png?raw=true)
 
 -----------------------
 
@@ -44,13 +44,13 @@ But the rule can now apply to (a)-(c) and extract "MEK1", "ERK1", and "ERK2" as 
 You can clone the repository
 
 ```bash
-$ git clone https://github.com/yfpeng/isimp
+$ git clone https://github.com/bionlplab/isimp
 $ cd isimp
 ```
 
 ## Build Java
 
-Downdload [lib](https://github.com/yfpeng/bionlplab/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
+Downdload [lib](https://github.com/bionlplab/bionlplab/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
 
 ```bash
 $ bash scripts/build.sh
@@ -136,7 +136,7 @@ In the converted data below, text files (in .txt) in the BioNLP corpora are spli
 
 2013 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
 
-2011 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
+2011 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
 
 ## Citing iSimp
 
