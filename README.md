@@ -2,7 +2,7 @@
 
 -----------------------
 
-![HitCount](https://hits.dwyl.com/yfpeng/isimp.svg)
+![HitCount](https://hits.dwyl.com/bionlplab/isimp.svg)
 
 Sentence simplification is a technique designed to detect the various types of clauses and constructs used in a
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
@@ -50,7 +50,7 @@ $ cd isimp
 
 ## Build Java
 
-Downdload [lib](https://github.com/yfpeng/isimp/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
+Downdload [lib](https://github.com/yfpeng/bionlplab/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
 
 ```bash
 $ bash scripts/build.sh
@@ -119,14 +119,14 @@ This corpus consists of [Medline](http://www.ncbi.nlm.nih.gov/pubmed) abstracts 
 | Parenthesized elements |           0.16 |           0.63 |
 | Introductory phrases   |           0.12 |           0.53 |
 
-The corpus contains XML files of passages, sentences, and annotations of simplification constructions. Each XML file is in BioC format, therefore, given with its Key files. For convenience, all BioC files use same [DTD](https://github.com/yfpeng/isimp/releases/download/v0.2/BioC.dtd), provided by [BioC](http://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/BioC/), to verify the structure of XML files.
+The corpus contains XML files of passages, sentences, and annotations of simplification constructions. Each XML file is in BioC format, therefore, given with its Key files. For convenience, all BioC files use same [DTD](https://github.com/bionlplab/isimp/releases/download/v0.2/BioC.dtd), provided by [BioC](http://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/BioC/), to verify the structure of XML files.
 
 * XML files, following DTD definition, contain text and annotations.
 * Key files, mainly written by Yifan Peng, provide additional information that describe the meaning of tags in the XML files.
 
 ### Download
 
-The download is a [zipped file](https://github.com/yfpeng/isimp/releases/download/v0.2/bioc-isimp-simplification_v2.tar.gz). If you upack the zip file, you should have a BioC XML file and a Key file. The BioC file contains raw text that appears in PubMed abstracts, which is downloaded directly from Medline, and simplfication constructs. For each construct, "annotation" marked its components, and "relation" linked components to show the simplification constructs as a whole. Details of tag meanings can be found in the Key file.
+The download is a [zipped file](https://github.com/bionlplab/isimp/releases/download/v0.2/bioc-isimp-simplification_v2.tar.gz). If you upack the zip file, you should have a BioC XML file and a Key file. The BioC file contains raw text that appears in PubMed abstracts, which is downloaded directly from Medline, and simplfication constructs. For each construct, "annotation" marked its components, and "relation" linked components to show the simplification constructs as a whole. Details of tag meanings can be found in the Key file.
 
 ### BioNLP-ST corpora
 
@@ -134,9 +134,9 @@ We have converted the training and development corpora of the BioNLP-ST [2011](h
 
 In the converted data below, text files (in .txt) in the BioNLP corpora are split by 'newlines' and stored into BioCPassages. Entities (in .a1) and event triggers (in .a2) are stored into separate passages based on their positions in the text files. Target annotations (in .a2), including event, relation, event modification, and equivalence, are annotated at the document level.
 
-2013 GE task: [Training set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
+2013 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
 
-2011 GE task: [Training set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://github.com/yfpeng/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
+2011 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
 
 ## Citing iSimp
 
