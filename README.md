@@ -2,7 +2,7 @@
 
 -----------------------
 
-[![HitCount](http://hits.dwyl.com/bionlplab/isimp.svg)](http://hits.dwyl.com/bionlplab/isimp)
+[![HitCount](http://hits.dwyl.com/bionlplab/isimp.svg)](https://github.com/bionlplab/isimp)
 
 Sentence simplification is a technique designed to detect the various types of clauses and constructs used in a
 complex sentence, in an effort to produce two or more simple sentences while maintaining both coherence and the
