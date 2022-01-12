@@ -132,9 +132,9 @@ We have converted the training and development corpora of the BioNLP-ST [2011](h
 
 In the converted data below, text files (in .txt) in the BioNLP corpora are split by 'newlines' and stored into BioCPassages. Entities (in .a1) and event triggers (in .a2) are stored into separate passages based on their positions in the text files. Target annotations (in .a2), including event, relation, event modification, and equivalence, are annotated at the document level.
 
-2013 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
+2013 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v1.0.4/BioNLP-ST-2013_GE_train_data_rev3.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v1.0.4/BioNLP-ST-2013_GE_devel_data_rev3.xml.tar.gz)
 
-2011 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v0.2/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
+2011 GE task: [Training set](https://github.com/bionlplab/isimp/releases/download/v1.0.4/BioNLP-ST_2011_genia_train_data_rev1.xml.tar.gz), [Development set](https://github.com/bionlplab/isimp/releases/download/v1.0.4/BioNLP-ST_2011_genia_devel_data_rev1.xml.tar.gz)
 
 ## Citing iSimp
 
