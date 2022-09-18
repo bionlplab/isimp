@@ -48,7 +48,7 @@ $ cd isimp
 
 ## Build Java
 
-Downdload [lib](https://github.com/bionlplab/bionlplab/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
+Downdload [lib]([https://github.com/bionlplab/isimp/releases/download/v1.0.4/lib.zip](https://github.com/bionlplab/isimp/releases/download/v1.0.4/lib.zip) and put them in the `lib` folder.
 
 ```bash
 $ bash scripts/build.sh
